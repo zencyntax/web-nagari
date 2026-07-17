@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@push('styles')
+    @vite('resources/css/home.css')
+@endpush
+
 @section('title', 'Beranda')
 
 @section('content')

@@ -52,30 +52,32 @@
 
                     <a
                         class="nav-link dropdown-toggle"
-                        href="#"
-                        role="button"
+                        href="{{url('/profil')}}"
                         aria-expanded="false">
 
-                        Profil
+                        Profile
 
                     </a>
 
                     <ul class="dropdown-menu">
 
                         <li>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item"
+                            href="{{ url('/profil#sejarah') }}">
                                 Sejarah
                             </a>
                         </li>
 
                         <li>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item"
+                            href="{{ url('/profil#visi-misi') }}">
                                 Visi & Misi
                             </a>
                         </li>
 
                         <li>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item"
+                            href="{{ url('/profil#demografi') }}">
                                 Demografi
                             </a>
                         </li>
@@ -119,18 +121,18 @@
                         Kontak
                     </a>
                 </li>
-                {{--
+
                 <li class="nav-item ms-lg-3">
 
                     <a href="#"
                         class="btn btn-warning px-4">
 
-                        Pengaduan
+                        Login
 
                     </a>
 
                 </li>
-                --}}
+
             </ul>
 
         </div>
