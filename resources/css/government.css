@@ -1,0 +1,686 @@
+/* ==========================================================
+   GOVERNMENT PAGE
+========================================================== */
+
+:root {
+    --primary: #14532d;
+    --secondary: #22c55e;
+    --light: #f8fafc;
+    --gray: #64748b;
+    --dark: #1e293b;
+    --white: #ffffff;
+}
+
+/* ==========================================================
+   GLOBAL
+========================================================== */
+
+.government-section {
+    padding: 100px 0;
+}
+
+.government-section.bg-light {
+    background: #f8fafc;
+}
+
+.section-header {
+    max-width: 760px;
+    margin: 0 auto 60px;
+    text-align: center;
+}
+
+.section-subtitle {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 999px;
+    background: rgba(34, 197, 94, .12);
+    color: var(--primary);
+    font-size: .85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.section-title {
+    margin: 18px 0;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: var(--dark);
+}
+
+.section-header p {
+    color: var(--gray);
+    line-height: 1.9;
+    margin-bottom: 0;
+}
+
+/* ==========================================================
+   HERO
+========================================================== */
+
+.government-hero {
+    position: relative;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    color: white;
+
+    background:
+        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+        url("/assets/images/government-hero.jpg")
+        center/cover no-repeat;
+}
+
+.government-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at top right,
+        rgba(34,197,94,.15),
+        transparent 40%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 850px;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 10px 22px;
+
+    border-radius: 999px;
+
+    background: rgba(255,255,255,.15);
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255,255,255,.25);
+
+    font-size: .9rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.hero-content h1 {
+    margin-top: 28px;
+    margin-bottom: 24px;
+
+    font-size: clamp(2.8rem, 6vw, 4.8rem);
+    font-weight: 800;
+    line-height: 1.15;
+}
+
+.hero-content p {
+    max-width: 720px;
+    margin: auto;
+
+    font-size: 1.1rem;
+    color: rgba(255,255,255,.88);
+    line-height: 1.9;
+}
+
+/* ==========================================================
+   STRUKTUR PEMERINTAHAN
+========================================================== */
+
+.structure-wrapper {
+
+    max-width: 1000px;
+
+    margin: auto;
+
+    padding: 30px;
+
+    border-radius: 24px;
+
+    background: white;
+
+    box-shadow:
+        0 15px 45px rgba(15,23,42,.08);
+}
+
+.structure-wrapper img {
+
+    width: 100%;
+
+    display: block;
+
+    border-radius: 16px;
+}
+
+/* ==========================================================
+   ORGANIZATION CHART
+========================================================== */
+
+.organization-chart{
+
+    max-width:1100px;
+
+    margin:auto;
+}
+
+.org-level{
+
+    display:flex;
+
+    justify-content:center;
+}
+
+.org-line.vertical{
+
+    width:3px;
+
+    height:55px;
+
+    margin:auto;
+
+    background:#22c55e;
+}
+
+.org-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+    margin-top:20px;
+}
+
+.org-card{
+
+    background:#fff;
+
+    padding:35px 25px;
+
+    border-radius:22px;
+
+    text-align:center;
+
+    box-shadow:0 12px 35px rgba(15,23,42,.08);
+
+    transition:.35s;
+}
+
+.org-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 20px 40px rgba(20,83,45,.15);
+}
+
+.org-card img{
+
+    width:110px;
+
+    height:110px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    border:5px solid rgba(34,197,94,.12);
+
+    margin-bottom:18px;
+}
+
+.org-card h4{
+
+    font-size:1.1rem;
+
+    font-weight:700;
+
+    margin-bottom:8px;
+
+    color:var(--dark);
+}
+
+.org-card span{
+
+    display:inline-block;
+
+    padding:6px 16px;
+
+    border-radius:999px;
+
+    background:rgba(34,197,94,.12);
+
+    color:var(--primary);
+
+    font-size:.9rem;
+
+    font-weight:600;
+}
+
+.org-card.leader{
+
+    width:340px;
+}
+
+/* ==========================================================
+   PERANGKAT NAGARI
+========================================================== */
+
+.staff-card {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 40px 30px;
+    text-align: center;
+    height: 100%;
+
+    border: 1px solid rgba(15, 23, 42, .06);
+
+    box-shadow: 0 12px 35px rgba(15, 23, 42, .06);
+
+    transition: .35s ease;
+}
+
+.staff-card:hover {
+    transform: translateY(-10px);
+
+    box-shadow: 0 20px 45px rgba(20, 83, 45, .15);
+
+    border-color: rgba(34, 197, 94, .25);
+}
+
+.staff-card img {
+    width: 120px;
+    height: 120px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    margin-bottom: 24px;
+
+    border: 5px solid rgba(34, 197, 94, .12);
+}
+
+.staff-card h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+
+    color: var(--dark);
+
+    margin-bottom: 8px;
+}
+
+.staff-card span {
+    display: inline-block;
+
+    padding: 6px 16px;
+
+    border-radius: 999px;
+
+    background: rgba(34, 197, 94, .12);
+
+    color: var(--primary);
+
+    font-size: .9rem;
+    font-weight: 600;
+
+    margin-bottom: 18px;
+}
+
+.staff-card p {
+    margin: 0;
+
+    color: var(--gray);
+
+    line-height: 1.8;
+
+    font-size: .95rem;
+}
+
+/* ==========================================================
+   STAFF GRID
+========================================================== */
+
+.staff-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.staff-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 5px;
+
+    background: linear-gradient(
+        90deg,
+        var(--secondary),
+        var(--primary)
+    );
+
+    transition: .4s;
+}
+
+.staff-card:hover::before {
+
+    left: 0;
+}
+
+/* ==========================================================
+   FOTO PERANGKAT
+========================================================== */
+
+.staff-card img {
+
+    transition: .35s;
+}
+
+.staff-card:hover img {
+
+    transform: scale(1.05);
+}
+
+/* ==========================================================
+   SECTION BACKGROUND
+========================================================== */
+
+.government-section.bg-light {
+
+    position: relative;
+    overflow: hidden;
+}
+
+.government-section.bg-light::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    background: rgba(34,197,94,.05);
+
+    top: -120px;
+    right: -120px;
+}
+
+.government-section.bg-light::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    border-radius: 50%;
+
+    background: rgba(20,83,45,.04);
+
+    bottom: -90px;
+    left: -90px;
+}
+
+.government-section.bg-light .container{
+
+    position: relative;
+    z-index: 2;
+}
+
+/* ==========================================================
+   LEMBAGA KEMASYARAKATAN
+========================================================== */
+
+.institution-card {
+
+    background: var(--white);
+
+    border-radius: 24px;
+
+    padding: 40px 30px;
+
+    text-align: center;
+
+    height: 100%;
+
+    border: 1px solid rgba(15,23,42,.06);
+
+    box-shadow: 0 12px 35px rgba(15,23,42,.06);
+
+    transition: .35s ease;
+}
+
+.institution-card:hover {
+
+    transform: translateY(-10px);
+
+    box-shadow: 0 20px 45px rgba(20,83,45,.15);
+}
+
+.institution-card i {
+
+    width: 90px;
+    height: 90px;
+
+    margin: auto auto 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(34,197,94,.12);
+
+    color: var(--primary);
+
+    font-size: 2.3rem;
+}
+
+.institution-card h4 {
+
+    font-size: 1.25rem;
+
+    font-weight: 700;
+
+    color: var(--dark);
+
+    margin-bottom: 16px;
+}
+
+.institution-card p {
+
+    color: var(--gray);
+
+    line-height: 1.8;
+
+    margin: 0;
+}
+
+
+/* ==========================================================
+   JAM PELAYANAN
+========================================================== */
+
+.service-hours {
+
+    max-width: 820px;
+
+    margin: auto;
+}
+
+.service-item {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 20px 28px;
+
+    margin-bottom: 18px;
+
+    border-radius: 18px;
+
+    background: var(--white);
+
+    border: 1px solid rgba(15,23,42,.06);
+
+    box-shadow: 0 10px 25px rgba(15,23,42,.05);
+
+    transition: .3s ease;
+}
+
+.service-item:hover {
+
+    transform: translateX(8px);
+
+    border-color: rgba(34,197,94,.25);
+
+    box-shadow: 0 18px 35px rgba(20,83,45,.10);
+}
+
+.service-item span {
+
+    font-size: 1rem;
+
+    font-weight: 600;
+
+    color: var(--dark);
+}
+
+.service-item strong {
+
+    color: var(--primary);
+
+    font-weight: 700;
+}
+
+
+/* ==========================================================
+   CTA
+========================================================== */
+
+.government-cta {
+
+    padding: 100px 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #14532d,
+            #166534
+        );
+}
+
+.cta-box {
+
+    max-width: 850px;
+
+    margin: auto;
+
+    color: white;
+}
+
+.cta-box h2 {
+
+    font-size: clamp(2rem,4vw,3rem);
+
+    font-weight: 700;
+
+    margin-bottom: 20px;
+}
+
+.cta-box p {
+
+    font-size: 1.05rem;
+
+    line-height: 1.9;
+
+    color: rgba(255,255,255,.85);
+
+    margin-bottom: 35px;
+}
+
+.cta-box .btn {
+
+    padding: 15px 38px;
+
+    border-radius: 999px;
+
+    font-weight: 600;
+
+    font-size: 1rem;
+
+    transition: .3s;
+}
+
+.cta-box .btn:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow: 0 15px 30px rgba(0,0,0,.25);
+}
+
+
+/* ==========================================================
+   ANIMATION
+========================================================== */
+
+.staff-card,
+.institution-card,
+.service-item,
+.structure-wrapper {
+
+    transition: all .35s ease;
+}
+
+.section-header {
+
+    animation: fadeUp .8s ease;
+}
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(40px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+.hidden{
+
+    opacity:0;
+
+    transform:translateY(35px);
+
+    transition:.6s ease;
+}
+
+.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+}

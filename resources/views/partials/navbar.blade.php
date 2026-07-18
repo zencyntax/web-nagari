@@ -52,7 +52,7 @@
 
                     <a
                         class="nav-link dropdown-toggle"
-                        href="{{url('/profil')}}"
+                        href="{{url('/profile')}}"
                         aria-expanded="false">
 
                         Profile
@@ -87,7 +87,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route("government")}}" class="nav-link">
                         Pemerintahan
                     </a>
                 </li>
@@ -99,7 +99,8 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('news') }}"
+                        class="nav-link {{ request()->routeIs('news*') ? 'active' : '' }}">
                         Berita
                     </a>
                 </li>
