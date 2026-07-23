@@ -244,6 +244,32 @@ data-target="{{ $item['value'] }}">
 
 <p>{{ $item['label'] }}</p>
 
+<div class="stat-details">
+
+    @foreach($item['details'] as $detail)
+
+        <div class="detail-item">
+
+            <div class="detail-left">
+
+                <i class="bi {{ $detail['icon'] }}"></i>
+
+                <span>{{ $detail['label'] }}</span>
+
+            </div>
+
+            @if($detail['value'] !== '')
+
+                <strong>{{ $detail['value'] }}</strong>
+
+            @endif
+
+        </div>
+
+    @endforeach
+
+</div>
+
 </div>
 
 </div>

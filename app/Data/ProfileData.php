@@ -94,6 +94,20 @@ class ProfileData
                 'label' => 'Jumlah Penduduk',
 
                 'counter' => true,
+                    'details' => [
+                        [
+                        'icon' => 'bi-gender-male',
+                        'label' => 'Laki-laki',
+                        'value' => 777,
+                        ],
+
+                        [
+                        'icon' => 'bi-gender-female',
+                        'label' => 'Perempuan',
+                        'value' => 424,
+                        ],
+
+                    ],
 
             ],
 
@@ -106,6 +120,18 @@ class ProfileData
                 'label' => 'Kepala Keluarga',
 
                 'counter' => true,
+                'details'=>[
+                    [
+                        'icon' => 'bi-gender-male',
+                        'label' => 'KK Laki-laki',
+                        'value' => 268,
+                    ],
+                    [
+                        'icon' => 'bi-gender-female',
+                        'label' => 'KK Perempuan',
+                        'value' => 27,
+                    ]
+                ]
 
             ],
 
@@ -118,7 +144,23 @@ class ProfileData
                 'label' => 'Jumlah Jorong',
 
                 'counter' => true,
-
+                'details'=>[
+                    [
+                        'icon' => 'bi-pin-map-fill',
+                        'label' => 'Jorong Koto Sinyamu',
+                        'value' => null,
+                    ],
+                    [
+                        'icon' => 'bi-pin-map-fill',
+                        'label' => 'Jorong Polak Sinyamu',
+                        'value' => null,
+                    ],
+                    [
+                        'icon' => 'bi-pin-map-fill',
+                        'label' => 'Jorong Kumbayak',
+                        'value' => null,
+                    ]
+                ]
             ],
 
             [
@@ -130,7 +172,18 @@ class ProfileData
                 'label' => 'Luas Wilayah',
 
                 'counter' => false,
-
+                'details'=>[
+                    [
+                        'icon' => 'bi-arrow-up-right-circle-fill',
+                        'label' => 'Ketinggian',
+                        'value' => '±125 mdpl',
+                    ],
+                    [
+                        'icon' => 'bi-geo-alt-fill',
+                        'label' => 'Kecamatan',
+                        'value' => 'Tanjung Gadang',
+                    ]
+                ]
             ],
 
         ];

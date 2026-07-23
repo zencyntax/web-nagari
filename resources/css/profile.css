@@ -451,9 +451,9 @@
 
 .demography-section .stat-card:hover{
 
-    transform:translateY(-10px);
+    transform:translateY(-10px) scale(1.02);
 
-    box-shadow:0 25px 55px rgba(0,0,0,.12);
+    box-shadow:0 30px 60px rgba(0,0,0,.15);
 
 }
 
@@ -484,6 +484,83 @@
     color:#666;
 
     margin:0;
+
+}
+
+.stat-details{
+
+    max-height:0;
+
+    opacity:0;
+
+    overflow:hidden;
+
+    transition:
+        max-height .35s ease,
+        opacity .35s ease,
+        margin .35s ease;
+
+    margin-top:0;
+
+}
+
+.stat-details div{
+
+    padding:4px 0;
+
+    color:#555;
+
+    font-size:15px;
+
+}
+
+.stat-card:hover .stat-details{
+
+    max-height:200px;
+
+    opacity:1;
+
+    margin-top:20px;
+
+}
+
+.detail-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:8px 0;
+
+    border-top:1px solid rgba(0,0,0,.06);
+
+    font-size:15px;
+
+}
+
+.detail-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.detail-left i{
+
+    color:var(--secondary);
+
+}
+
+.detail-item strong{
+
+    color:var(--primary);
+
+    font-weight:700;
 
 }
 
