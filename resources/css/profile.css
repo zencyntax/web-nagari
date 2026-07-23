@@ -44,6 +44,36 @@
 
 }
 
+.hero-badge{
+
+    display:inline-block;
+
+    background:rgba(255,255,255,.15);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    backdrop-filter:blur(8px);
+
+    -webkit-backdrop-filter:blur(8px);
+
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+
+    padding:10px 22px;
+
+    border-radius:999px;
+
+    color:#fff;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
 /* =====================================================
                 SECTION
 ===================================================== */
@@ -73,6 +103,14 @@
     color:var(--primary);
 
     margin-bottom:20px;
+
+}
+
+.vision-section{
+
+    padding:120px 0;
+
+    background:#fff;
 
 }
 
@@ -114,7 +152,11 @@
 
 .leader-photo img{
 
-    width:95%;
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
 
     transition:.4s;
 
@@ -135,66 +177,52 @@
 }
 
 /* =====================================================
-                TIMELINE
+                HISTORY
 ===================================================== */
 
-#sejarah{
-
-    background:#f8fafc;
+.history-section{
 
     padding:120px 0;
 
+    background:#f8fafc;
+
 }
 
-.timeline{
+.history-card{
 
-    position:relative;
+    background:#fff;
 
-    max-width:950px;
+    border-radius:24px;
+
+    padding:50px;
+
+    box-shadow:0 18px 45px rgba(0,0,0,.08);
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+
+}
+
+.history-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 28px 60px rgba(0,0,0,.12);
+
+}
+
+.history-icon{
+
+    width:90px;
+
+    height:90px;
 
     margin:auto;
 
-}
-
-.timeline::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:25px;
-
-    top:0;
-
-    width:4px;
-
-    height:100%;
-
-    background:var(--secondary);
-
-}
-
-.timeline-item{
-
-    display:flex;
-
-    gap:30px;
-
-    margin-bottom:60px;
-
-    position:relative;
-
-}
-
-.timeline-dot{
-
-    width:55px;
-
-    height:55px;
-
-    background:var(--primary);
-
     border-radius:50%;
+
+    background:rgba(22,163,74,.12);
 
     display:flex;
 
@@ -202,77 +230,63 @@
 
     align-items:center;
 
-    color:white;
-
-    font-size:22px;
-
-    flex-shrink:0;
-
-    border:6px solid white;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.15);
-
-    z-index:2;
+    box-shadow:0 10px 30px rgba(22,163,74,.15);
 
 }
 
-.timeline-content{
+.history-icon i{
 
-    background:white;
+    font-size:40px;
 
-    border-radius:20px;
-
-    padding:30px;
-
-    flex:1;
-
-    box-shadow:0 12px 35px rgba(0,0,0,.08);
-
-    transition:.35s;
+    color:var(--primary);
 
 }
 
-.timeline-content:hover{
-
-    transform:translateY(-8px);
-
-    box-shadow:0 20px 45px rgba(0,0,0,.12);
-
-}
-
-.timeline-year{
+.history-date{
 
     display:inline-block;
 
+    margin-top:20px;
+
     background:var(--secondary);
 
-    color:white;
+    color:#fff;
 
-    padding:6px 16px;
+    padding:8px 20px;
 
-    border-radius:50px;
-
-    margin-bottom:15px;
+    border-radius:999px;
 
     font-weight:600;
 
 }
 
-.timeline-content h4{
+.history-title{
 
     color:var(--primary);
 
+    font-size:32px;
+
     font-weight:700;
 
-    margin-bottom:15px;
+    margin-bottom:20px;
 
 }
 
-.timeline-content p{
+.history-text{
 
     color:#666;
 
-    line-height:1.8;
+    line-height:1.9;
+
+    margin:0;
+
+}
+
+.section-description{
+
+    max-width:720px;
+
+    margin:auto;
 
 }
 
@@ -292,7 +306,9 @@
 
     box-shadow:0 12px 35px rgba(0,0,0,.08);
 
-    transition:.35s;
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
 
 }
 
@@ -341,6 +357,30 @@
 .profile-card p{
 
     color:#666;
+
+    line-height:1.8;
+
+}
+
+.vision-quote{
+
+    border-left:5px solid var(--secondary);
+
+    background:rgba(22,163,74,.05);
+
+    border-radius:0 12px 12px 0;
+
+    padding:20px 24px;
+
+    margin:30px 0;
+
+    color:var(--primary);
+
+    font-size:24px;
+
+    font-style:italic;
+
+    font-weight:600;
 
     line-height:1.8;
 
@@ -399,7 +439,9 @@
 
     box-shadow:0 15px 40px rgba(0,0,0,.08);
 
-    transition:.35s;
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
 
     height:100%;
 
@@ -483,6 +525,8 @@
 
     align-items:center;
 
+    gap:20px;
+
     padding:16px 0;
 
     border-bottom:1px solid #ececec;
@@ -504,6 +548,8 @@
 .geo-item span{
 
     color:#666;
+
+    text-align:right;
 
 }
 
@@ -566,6 +612,14 @@
 
     font-weight:600;
 
+    transition:.3s;
+
+}
+
+.cta-box .btn:hover{
+
+    transform:translateY(-3px);
+
 }
 
 /* =====================================================
@@ -602,22 +656,6 @@
 
     }
 
-    .timeline::before{
-
-        left:20px;
-
-    }
-
-    .timeline-dot{
-
-        width:45px;
-
-        height:45px;
-
-        font-size:18px;
-
-    }
-
 }
 
 @media(max-width:768px){
@@ -650,15 +688,15 @@
 
     }
 
-    .timeline-item{
+    .history-card{
 
-        gap:20px;
+    padding:35px;
 
     }
 
-    .timeline-content{
+    .history-title{
 
-        padding:20px;
+    font-size:26px;
 
     }
 
@@ -671,6 +709,48 @@
     .cta-box p{
 
         font-size:17px;
+
+    }
+
+}
+
+@media(max-width:576px){
+
+    .history-card{
+
+        padding:28px;
+
+    }
+
+    .history-title{
+
+        font-size:22px;
+
+    }
+
+    .profile-card{
+
+        padding:25px;
+
+    }
+
+    .section-title{
+
+        font-size:30px;
+
+    }
+
+    .profile-hero h1{
+
+    font-size:32px;
+
+    }
+
+    .hero-badge{
+
+    font-size:12px;
+
+    padding:8px 18px;
 
     }
 

@@ -7,12 +7,13 @@ class ProfileData
     public static function hero(): array
     {
         return [
+
             'badge' => 'PROFIL NAGARI',
 
             'title' => 'Profil Nagari Sinyamu',
 
-            'subtitle' =>
-                'Mengenal lebih dekat Nagari Sinyamu, sejarah, visi misi, kondisi geografis, serta potensi yang dimiliki sebagai nagari yang terus berkembang.',
+            'subtitle' => 'Mengenal lebih dekat Nagari Sinyamu, sejarah, visi dan misi, kondisi geografis, serta potensi yang dimiliki sebagai nagari yang terus berkembang.',
+
         ];
     }
 
@@ -20,20 +21,19 @@ class ProfileData
     {
         return [
 
-            'name' => 'Nama Wali Nagari',
+            'name' => 'Amris Saputra',
 
             'position' => 'Wali Nagari Sinyamu',
 
             'photo' => asset('assets/images/profile/wali-nagari.jpg'),
 
-            'greeting' =>
-                "Assalamu'alaikum Warahmatullahi Wabarakatuh.",
+            'greeting' => "Assalamu'alaikum Warahmatullahi Wabarakatuh.",
 
             'paragraphs' => [
 
-                'Selamat datang di Website Resmi Nagari Sinyamu. Website ini hadir sebagai media informasi dan komunikasi antara Pemerintah Nagari dengan masyarakat maupun pihak luar yang ingin mengenal Nagari Sinyamu.',
+                'Selamat datang di Website Resmi Nagari Sinyamu. Website ini hadir sebagai media informasi dan komunikasi antara Pemerintah Nagari dengan masyarakat, sekaligus sebagai sarana publikasi berbagai potensi, program, dan pelayanan yang tersedia di Nagari Sinyamu.',
 
-                'Kami berkomitmen memberikan pelayanan yang transparan, akuntabel, serta mendukung pemanfaatan teknologi informasi dalam penyelenggaraan pemerintahan nagari demi meningkatkan kualitas pelayanan kepada masyarakat.',
+                'Kami berkomitmen mewujudkan tata kelola pemerintahan yang terbuka, profesional, dan berorientasi pada pelayanan masyarakat. Semoga website ini dapat memberikan manfaat, mempererat hubungan antara pemerintah nagari dengan masyarakat, serta menjadi sumber informasi yang akurat dan terpercaya.',
 
             ],
 
@@ -48,36 +48,35 @@ class ProfileData
 
             'title' => 'Nagari Sinyamu Resmi Berdiri',
 
-            'description' =>
-                'Nagari Sinyamu resmi dimekarkan dari Nagari Timbulun pada tanggal 12 Februari 2012 sebagai bagian dari upaya meningkatkan efektivitas pelayanan pemerintahan serta mempercepat pembangunan bagi masyarakat.',
+            'description' => 'Nagari Sinyamu resmi dimekarkan dari Nagari Timbulun pada tanggal 12 Februari 2012 sebagai bagian dari upaya meningkatkan efektivitas penyelenggaraan pemerintahan serta pemerataan pelayanan kepada masyarakat. Sejak berdiri sebagai nagari definitif, Nagari Sinyamu terus berupaya meningkatkan kualitas pembangunan di berbagai bidang, mulai dari pemerintahan, infrastruktur, pemberdayaan ekonomi masyarakat, pendidikan, hingga pelestarian adat dan budaya demi mewujudkan kesejahteraan masyarakat.',
 
         ];
     }
 
     public static function vision(): string
     {
-        return 'Terwujudnya Nagari Sinyamu yang Maju, Mandiri, Sejahtera, Religius dan Berbudaya.';
+        return 'Mewujudkan Nagari Idaman, Pemerintahan Yang Bersih, Masyarakat Sejahtera Aman Sentosa Dalam Bingkai NKRI.';
     }
 
     public static function missions(): array
     {
         return [
 
-            'Meningkatkan kualitas pelayanan kepada masyarakat.',
+            'Meningkatkan pengamalan ajaran Agama Islam, meningkatkan ukhuwah Islamiyah, serta memberantas penyakit masyarakat (PEKAT).',
 
-            'Mewujudkan tata kelola pemerintahan yang transparan dan akuntabel.',
+            'Mewujudkan partisipasi masyarakat dan semangat gotong royong dalam setiap pembangunan.',
 
-            'Meningkatkan kualitas sumber daya manusia.',
+            'Memberantas segala bentuk penyimpangan dan penyelewengan dalam penyelenggaraan pemerintahan nagari.',
 
-            'Mengembangkan potensi ekonomi masyarakat berbasis UMKM.',
+            'Membangun infrastruktur berupa kantor pemerintahan, jalan, serta fasilitas umum yang menunjang perekonomian dan pendidikan masyarakat.',
 
-            'Meningkatkan pembangunan infrastruktur nagari.',
+            'Menjalin kerja sama dengan seluruh unsur organisasi yang ada di Nagari sesuai dengan tugas dan fungsinya masing-masing.',
 
-            'Melestarikan adat istiadat dan budaya lokal.',
+            'Menggali serta mengembangkan seluruh potensi Nagari secara optimal dengan berbasis ekonomi masyarakat.',
 
-            'Mendorong partisipasi masyarakat dalam pembangunan.',
+            'Menegakkan hukum dan peraturan Nagari secara murni dan konsekuen.',
 
-            'Meningkatkan kualitas lingkungan hidup yang berkelanjutan.',
+            'Menumbuhkembangkan empat pilar utama Nagari yaitu Ninik Mamak, Alim Ulama, Cadiak Pandai, Tokoh Masyarakat, serta menjalin sinergi dengan para perantau.',
 
         ];
     }
@@ -141,7 +140,7 @@ class ProfileData
     {
         return [
 
-            'map' => 'https://www.google.com/maps/embed?pb=!1m18',
+            'map' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3802.4475629460026!2d101.07026347473716!3d-0.7751643992173017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e2b10d514236ce7%3A0x8fa9c138ada67be8!2sKantor%20Wali%20Nagari%20Sinyamu!5e1!3m2!1sid!2sid!4v1784794188687!5m2!1sid!2sid',
 
             'items' => [
 
@@ -157,7 +156,7 @@ class ProfileData
 
                     'label' => 'Kabupaten',
 
-                    'value' => 'Sijunjung',
+                    'value' => 'Kabupaten Sijunjung',
 
                 ],
 
@@ -189,7 +188,7 @@ class ProfileData
 
                     'label' => 'Ketinggian',
 
-                    'value' => '±500 mdpl',
+                    'value' => '±125 mdpl',
 
                 ],
 
@@ -204,8 +203,7 @@ class ProfileData
 
             'title' => 'Mari Bersama Membangun Nagari',
 
-            'description' =>
-                'Partisipasi masyarakat merupakan kunci utama dalam mewujudkan Nagari Sinyamu yang lebih maju, mandiri, dan sejahtera.',
+            'description' => 'Partisipasi masyarakat merupakan kunci utama dalam mewujudkan Nagari Sinyamu yang lebih maju, mandiri, dan sejahtera. Bersama kita dapat membangun nagari yang lebih baik untuk generasi sekarang maupun yang akan datang.',
 
             'button' => 'Hubungi Kami',
 

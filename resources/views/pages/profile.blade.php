@@ -19,7 +19,9 @@
     <div class="container">
         <div class="row justify-content-center text-center">
             <div class="col-lg-8">
-                <span class="hero-badge">PROFIL NAGARI</span>
+                <span class="hero-badge">
+                    {{ $hero['badge'] }}
+                </span>
 
                 <h1 class="display-3 fw-bold mt-4">
                     {{ $hero['title'] }}
@@ -69,7 +71,7 @@
                     {{ $welcome['greeting'] }}
                 </p>
 
-                @foreach($welcome['description'] as $paragraph)
+                @foreach($welcome['paragraphs'] as $paragraph)
                     <p>{{ $paragraph }}</p>
                 @endforeach
 
@@ -86,33 +88,43 @@
 {{-- =========================================================
     SEJARAH
 ========================================================= --}}
-<section id="sejarah" class="py-5 bg-light">
+<section id="sejarah" class="history-section">
 
     <div class="container">
 
         <div class="text-center mb-5">
 
-            <span class="section-label">Sejarah</span>
+            <span class="section-label">
+                Sejarah
+            </span>
 
             <h2 class="section-title">
                 Perjalanan Berdirinya Nagari
             </h2>
 
+            <p class="text-muted section-description">
+                Sejarah berdirinya Nagari Sinyamu sebagai dasar pembangunan menuju masa depan yang lebih baik.
+            </p>
+
         </div>
 
-        <div class="profile-card mx-auto" style="max-width:900px">
+        <div class="history-card text-center mx-auto">
 
-            <div class="icon-box">
-                <i class="bi bi-clock-history" aria-hidden="true"></i>
+            <div class="history-icon">
+                <i class="bi bi-bank"></i>
             </div>
 
-            <span class="badge bg-success mb-3">
+            <span class="history-date">
                 {{ $history['date'] }}
             </span>
 
-            <h3>{{ $history['title'] }}</h3>
+            <h3 class="history-title">
+                {{ $history['title'] }}
+            </h3>
 
-            <p>{{ $history['description'] }}</p>
+            <p class="history-text">
+                {{ $history['description'] }}
+            </p>
 
         </div>
 
@@ -147,7 +159,9 @@
 
 <h3>Visi</h3>
 
-<p>{{ $vision }}</p>
+<p class="vision-quote">
+    {{ $vision }}
+</p>
 
 </div>
 
@@ -214,12 +228,19 @@
 
 <i class="bi {{ $item['icon'] }}" aria-hidden="true"></i>
 
-<h2 class="counter"
+@if($item['counter'])
+
+<h2
+class="counter"
 data-target="{{ $item['value'] }}">
-
 0
-
 </h2>
+
+@else
+
+<h2>{{ $item['value'] }}</h2>
+
+@endif
 
 <p>{{ $item['label'] }}</p>
 
@@ -278,24 +299,13 @@ referrerpolicy="no-referrer-when-downgrade">
 
 <h3 class="mb-4">Informasi Wilayah</h3>
 
-@php
-$info = [
-'Provinsi'=>$geography['province'],
-'Kabupaten'=>$geography['regency'],
-'Kecamatan'=>$geography['district'],
-'Luas Wilayah'=>$geography['area'],
-'Jumlah Jorong'=>$geography['jorong'],
-'Ketinggian'=>$geography['elevation'],
-];
-@endphp
-
-@foreach($info as $label=>$value)
+@foreach($geography['items'] as $item)
 
 <div class="geo-item">
 
-<strong>{{ $label }}</strong>
+    <strong>{{ $item['label'] }}</strong>
 
-<span>{{ $value }}</span>
+    <span>{{ $item['value'] }}</span>
 
 </div>
 
