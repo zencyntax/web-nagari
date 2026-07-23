@@ -1,189 +1,67 @@
-/* ===========================
-HERO
-=========================== */
+/* ==================================================
+   HOME PAGE - Nagari Sinyamu
+================================================== */
 
+/* HERO */
 .hero{
-
     min-height:100vh;
-
     display:flex;
-
     align-items:center;
-
     background:
-    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-    url("/public/assets/images/hero.jpg");
-
+        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+        url("/public/assets/images/hero.jpg");
     background-size:cover;
-
     background-position:center;
-
+    background-repeat:no-repeat;
 }
-
-.hero-badge{
-
-    display:inline-block;
-
-    color:white;
-
-    font-size:14px;
-
-    letter-spacing:1px;
-
-}
-
-.hero h1{
-
-    color:white;
-
-    font-size:68px;
-
-    font-weight:800;
-
-    line-height:1.1;
-
-}
-
-.hero p{
-
-    color:#eee;
-
-    font-size:20px;
-
-    margin:30px 0;
-
-    max-width:650px;
-
-}
-
-.hero-button{
-
-    display:flex;
-
-    gap:15px;
-
-}
-
-.hero-button .btn{
-
-    padding:14px 32px;
-
-    border-radius:50px;
-
-    font-weight:600;
-
-}
-
-/* ===========================
-   STATISTIK
-=========================== */
-
-.statistics{
-
-    margin-top:-70px;
-
-    position:relative;
-
-    z-index:20;
-
-}
-
-.stat-card{
-
-    background:white;
-
-    border-radius:20px;
-
-    padding:35px;
-
-    text-align:center;
-
-    box-shadow:0 15px 40px rgba(0,0,0,.08);
-
-    transition:.3s;
-
-}
-
-.stat-card:hover{
-
-    transform:translateY(-8px);
-
-}
-
-.stat-card i{
-
-    font-size:40px;
-
-    color:var(--primary);
-
-}
-
-.stat-card h2{
-
-    margin-top:15px;
-
-    font-size:34px;
-
-    color:var(--primary);
-
-    font-weight:700;
-
-}
-
-.stat-card p{
-
-    margin:0;
-
-    color:#777;
-
-}
-
-/* ===========================
-   ABOUT
-=========================== */
-
-.about-section{
-
-    padding:100px 0;
-
-    background:#fff;
-
-}
-
-.leader-photo{
-
-    width:420px;
-
-    height:420px;
-
-    margin:auto;
-
-    border-radius:50%;
-
-    background:white;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    box-shadow:0 20px 60px rgba(0,0,0,.12);
-
-    overflow:hidden;
-
-}
-
-.leader-photo img{
-
-    width:90%;
-
-    transition:.4s;
-
-}
-
-.leader-photo:hover img{
-
-    transform:scale(1.04);
-
+.hero-badge{display:inline-block;color:#fff;font-size:15px;font-weight:600;letter-spacing:1px;margin-bottom:15px;}
+.hero h1{color:#fff;font-size:68px;font-weight:800;line-height:1.1;}
+.hero p{color:#f1f5f9;font-size:20px;line-height:1.8;margin:30px 0;max-width:650px;}
+.hero-button{display:flex;gap:15px;flex-wrap:wrap;}
+.hero-button .btn{padding:14px 32px;border-radius:50px;font-weight:600;}
+
+/* STATISTICS */
+.statistics{margin-top:-70px;position:relative;z-index:5;}
+.stat-card{background:#fff;border-radius:20px;padding:35px 25px;text-align:center;box-shadow:0 15px 40px rgba(0,0,0,.08);transition:.3s;height:100%;}
+.stat-card:hover{transform:translateY(-8px);}
+.stat-card i{font-size:42px;color:var(--primary);}
+.stat-card h2{margin:15px 0 10px;color:var(--primary);font-size:34px;font-weight:700;}
+.stat-card p{margin:0;color:#64748b;}
+
+/* SHARED */
+.section-label,.section-subtitle{display:inline-block;color:var(--primary);font-weight:700;margin-bottom:10px;}
+.section-title{color:var(--primary);font-weight:800;margin-bottom:20px;}
+.section-header{text-align:center;margin-bottom:60px;}
+.section-header h2{font-size:42px;font-weight:700;}
+
+/* SAMBUTAN */
+.about-section{padding:100px 0;background:#fff;}
+.leader-photo{width:340px;height:340px;margin:auto;border-radius:50%;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.12);}
+.leader-photo img{width:100%;height:100%;object-fit:cover;transition:.4s;}
+.leader-photo:hover img{transform:scale(1.05);}
+
+/* ABOUT */
+.about{padding:100px 0;background:#f8fafc;}
+.about img{width:100%;height:420px;object-fit:cover;border-radius:20px;box-shadow:0 15px 40px rgba(0,0,0,.08);}
+.about h2{font-size:46px;font-weight:700;margin-bottom:25px;}
+.about p{color:#475569;line-height:1.8;margin-bottom:30px;}
+
+/* UMKM */
+.umkm{padding:100px 0;background:#fff;}
+
+/* NEWS */
+.news{padding:100px 0;background:#f8fafc;}
+
+/* RESPONSIVE */
+@media (max-width:991px){
+.hero{text-align:center;}
+.hero h1{font-size:52px;}
+.hero p{font-size:18px;margin-inline:auto;}
+.hero-button{justify-content:center;}
+.statistics{margin-top:40px;}
+.stat-card{margin-bottom:25px;}
+.leader-photo{width:280px;height:280px;margin-bottom:40px;}
+.about img{height:300px;margin-bottom:40px;}
+.about h2,.section-header h2{font-size:34px;}
+.about-section,.about,.umkm,.news{padding:80px 0;}
 }

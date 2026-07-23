@@ -1,3 +1,5 @@
+@extends('layouts.app')
+
 @push('styles')
     @vite('resources/css/profile.css')
 @endpush
@@ -6,322 +8,111 @@
     @vite('resources/js/profile.js')
 @endpush
 
-@extends('layouts.app')
-
 @section('title', 'Profil Nagari')
 
 @section('content')
 
-{{-- ===========================================
+{{-- =========================================================
     HERO
-=========================================== --}}
-
+========================================================= --}}
 <section class="profile-hero">
-
     <div class="container">
-
         <div class="row justify-content-center text-center">
-
             <div class="col-lg-8">
-
-                <span class="hero-badge">
-
-                    PROFIL NAGARI
-
-                </span>
+                <span class="hero-badge">PROFIL NAGARI</span>
 
                 <h1 class="display-3 fw-bold mt-4">
-
-                    Nagari Sinyamu
-
+                    {{ $hero['title'] }}
                 </h1>
 
                 <p class="lead mt-3">
-
-                    Mengenal sejarah, visi, misi, kondisi geografis,
-                    demografi serta struktur pemerintahan
-                    Nagari Sinyamu.
-
+                    {{ $hero['subtitle'] }}
                 </p>
-
             </div>
-
         </div>
-
     </div>
-
 </section>
 
-{{-- ===========================================
-    SAMBUTAN WALI NAGARI
-=========================================== --}}
-
-<section id="hero" class="about-nagari">
-
+{{-- =========================================================
+    SAMBUTAN
+========================================================= --}}
+<section class="about-nagari">
     <div class="container">
-
         <div class="row align-items-center g-5">
 
-            <div class="col-lg-5">
-
+            <div class="col-lg-5 text-center">
                 <div class="leader-photo">
-
                     <img
-                        src="{{ asset('assets/images/wali.jpg') }}"
-                        alt="Wali Nagari">
-
+                        src="{{ $welcome['photo'] }}"
+                        alt="{{ $welcome['name'] }}"
+                        loading="lazy">
                 </div>
-
             </div>
 
             <div class="col-lg-7">
 
-                <span class="section-label">
-
-                    Sambutan
-
-                </span>
+                <span class="section-label">Sambutan</span>
 
                 <h2 class="section-title">
-
                     Sambutan Wali Nagari
-
                 </h2>
 
                 <h4 class="fw-bold">
-
-                    Nama Wali Nagari
-
+                    {{ $welcome['name'] }}
                 </h4>
 
                 <p class="text-success fw-semibold">
-
-                    Wali Nagari Sinyamu
-
+                    {{ $welcome['position'] }}
                 </p>
 
                 <p class="mt-4">
-
-                    Assalamu'alaikum Warahmatullahi Wabarakatuh.
-
+                    {{ $welcome['greeting'] }}
                 </p>
 
-                <p>
+                @foreach($welcome['description'] as $paragraph)
+                    <p>{{ $paragraph }}</p>
+                @endforeach
 
-                    Selamat datang di Website Resmi Nagari Sinyamu.
-
-                    Website ini merupakan sarana informasi,
-                    komunikasi, dan pelayanan kepada masyarakat
-                    yang bertujuan meningkatkan transparansi,
-                    pelayanan publik, serta memperkenalkan
-                    potensi Nagari Sinyamu kepada masyarakat luas.
-
-                </p>
-
-                <p>
-
-                    Kami berharap website ini mampu menjadi media
-                    yang bermanfaat bagi masyarakat dalam memperoleh
-                    informasi mengenai pemerintahan nagari,
-                    kegiatan, UMKM, maupun pelayanan administrasi.
-
-                </p>
-
-                <a href="#sejarah"
-
-                    class="btn btn-success btn-lg mt-3">
-
+                <a href="#sejarah" class="btn btn-success btn-lg mt-3">
                     Pelajari Lebih Lanjut
-
                 </a>
 
             </div>
 
         </div>
-
     </div>
-
 </section>
 
-{{-- ===========================================
+{{-- =========================================================
     SEJARAH
-=========================================== --}}
-
-<section id="sejarah">
+========================================================= --}}
+<section id="sejarah" class="py-5 bg-light">
 
     <div class="container">
 
         <div class="text-center mb-5">
 
-            <span class="section-label">
-
-                Sejarah
-
-            </span>
+            <span class="section-label">Sejarah</span>
 
             <h2 class="section-title">
-
-                Perjalanan Nagari Sinyamu
-
+                Perjalanan Berdirinya Nagari
             </h2>
-
-            <p class="text-muted">
-
-                Perkembangan Nagari Sinyamu dari masa ke masa.
-
-            </p>
 
         </div>
 
-        <div class="timeline">
+        <div class="profile-card mx-auto" style="max-width:900px">
 
-            {{-- ITEM 1 --}}
-
-            <div class="timeline-item">
-
-                <div class="timeline-dot">
-
-                    <i class="bi bi-geo-alt-fill"></i>
-
-                </div>
-
-                <div class="timeline-content">
-
-                    <span class="timeline-year">
-
-                        1950
-
-                    </span>
-
-                    <h4>
-
-                        Awal Berdirinya Nagari
-
-                    </h4>
-
-                    <p>
-
-                        Tuliskan sejarah awal berdirinya
-                        Nagari Sinyamu di sini.
-                        Ceritakan asal-usul nama nagari,
-                        tokoh pendiri, maupun perkembangan awal.
-
-                    </p>
-
-                </div>
-
+            <div class="icon-box">
+                <i class="bi bi-clock-history" aria-hidden="true"></i>
             </div>
 
-            {{-- ITEM 2 --}}
+            <span class="badge bg-success mb-3">
+                {{ $history['date'] }}
+            </span>
 
-            <div class="timeline-item">
+            <h3>{{ $history['title'] }}</h3>
 
-                <div class="timeline-dot">
-
-                    <i class="bi bi-building"></i>
-
-                </div>
-
-                <div class="timeline-content">
-
-                    <span class="timeline-year">
-
-                        1975
-
-                    </span>
-
-                    <h4>
-
-                        Pembangunan Infrastruktur
-
-                    </h4>
-
-                    <p>
-
-                        Mulai dilakukan pembangunan
-                        jalan, fasilitas umum,
-                        kantor pemerintahan,
-                        dan pelayanan masyarakat.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-            {{-- ITEM 3 --}}
-
-            <div class="timeline-item">
-
-                <div class="timeline-dot">
-
-                    <i class="bi bi-shop"></i>
-
-                </div>
-
-                <div class="timeline-content">
-
-                    <span class="timeline-year">
-
-                        2005
-
-                    </span>
-
-                    <h4>
-
-                        Pengembangan UMKM
-
-                    </h4>
-
-                    <p>
-
-                        Pemerintah Nagari mulai
-                        mengembangkan sektor UMKM
-                        sebagai salah satu
-                        penopang ekonomi masyarakat.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-            {{-- ITEM 4 --}}
-
-            <div class="timeline-item">
-
-                <div class="timeline-dot">
-
-                    <i class="bi bi-globe2"></i>
-
-                </div>
-
-                <div class="timeline-content">
-
-                    <span class="timeline-year">
-
-                        2026
-
-                    </span>
-
-                    <h4>
-
-                        Transformasi Digital
-
-                    </h4>
-
-                    <p>
-
-                        Diluncurkannya Website Resmi
-                        Nagari Sinyamu sebagai media
-                        pelayanan informasi digital
-                        kepada masyarakat.
-
-                    </p>
-
-                </div>
-
-            </div>
+            <p>{{ $history['description'] }}</p>
 
         </div>
 
@@ -329,440 +120,220 @@
 
 </section>
 
-{{-- ===========================================
+{{-- =========================================================
     VISI & MISI
-=========================================== --}}
+========================================================= --}}
+<section id="visi-misi" class="vision-section py-5">
 
-<section id="visi-misi" class="vision-section">
+<div class="container">
 
-    <div class="container">
+<div class="text-center mb-5">
 
-        <div class="text-center mb-5">
+<span class="section-label">Visi & Misi</span>
 
-            <span class="section-label">
+<h2 class="section-title">Arah Pembangunan Nagari</h2>
 
-                Visi & Misi
+</div>
 
-            </span>
+<div class="row g-4">
 
-            <h2 class="section-title">
+<div class="col-lg-6">
 
-                Arah Pembangunan Nagari
+<div class="profile-card h-100">
 
-            </h2>
+<div class="icon-box">
+<i class="bi bi-eye-fill" aria-hidden="true"></i>
+</div>
 
-            <p class="text-muted">
+<h3>Visi</h3>
 
-                Visi dan misi sebagai pedoman dalam pembangunan
-                Nagari Sinyamu menuju masyarakat yang maju,
-                mandiri, dan sejahtera.
+<p>{{ $vision }}</p>
 
-            </p>
+</div>
 
-        </div>
+</div>
 
-        <div class="row g-4">
+<div class="col-lg-6">
 
-            {{-- VISI --}}
+<div class="profile-card h-100">
 
-            <div class="col-lg-6">
+<div class="icon-box">
+<i class="bi bi-bullseye" aria-hidden="true"></i>
+</div>
 
-                <div class="profile-card h-100">
+<h3>Misi</h3>
 
-                    <div class="icon-box">
+<ul class="mission-list">
 
-                        <i class="bi bi-eye-fill"></i>
+@foreach($missions as $mission)
 
-                    </div>
+<li>
 
-                    <h3>
+<i class="bi bi-check-circle-fill" aria-hidden="true"></i>
 
-                        Visi
+<span>{{ $mission }}</span>
 
-                    </h3>
+</li>
 
-                    <p>
+@endforeach
 
-                        Terwujudnya Nagari Sinyamu yang
-                        maju, mandiri, religius,
-                        transparan, berbudaya,
-                        serta memiliki daya saing
-                        melalui pelayanan publik yang
-                        berkualitas.
+</ul>
 
-                    </p>
+</div>
 
-                </div>
+</div>
 
-            </div>
+</div>
 
-            {{-- MISI --}}
-
-            <div class="col-lg-6">
-
-                <div class="profile-card h-100">
-
-                    <div class="icon-box">
-
-                        <i class="bi bi-bullseye"></i>
-
-                    </div>
-
-                    <h3>
-
-                        Misi
-
-                    </h3>
-
-                    <ul class="mission-list">
-
-                        <li>
-
-                            <i class="bi bi-check-circle-fill"></i>
-
-                            Meningkatkan kualitas pelayanan kepada masyarakat.
-
-                        </li>
-
-                        <li>
-
-                            <i class="bi bi-check-circle-fill"></i>
-
-                            Mengembangkan sektor UMKM dan ekonomi masyarakat.
-
-                        </li>
-
-                        <li>
-
-                            <i class="bi bi-check-circle-fill"></i>
-
-                            Mendorong pembangunan infrastruktur yang merata.
-
-                        </li>
-
-                        <li>
-
-                            <i class="bi bi-check-circle-fill"></i>
-
-                            Meningkatkan kualitas pendidikan,
-                            kesehatan, dan kesejahteraan masyarakat.
-
-                        </li>
-
-                        <li>
-
-                            <i class="bi bi-check-circle-fill"></i>
-
-                            Melestarikan adat, budaya,
-                            dan nilai-nilai kearifan lokal.
-
-                        </li>
-
-                    </ul>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
-{{-- ===========================================
+{{-- =========================================================
     DEMOGRAFI
-=========================================== --}}
-
+========================================================= --}}
 <section id="demografi" class="demography-section">
 
-    <div class="container">
+<div class="container">
 
-        <div class="text-center mb-5">
+<div class="text-center mb-5">
 
-            <span class="section-label">
+<span class="section-label">Demografi</span>
 
-                Demografi
+<h2 class="section-title">Gambaran Umum Nagari</h2>
 
-            </span>
+</div>
 
-            <h2 class="section-title">
+<div class="row g-4">
 
-                Gambaran Umum Nagari
+@foreach($demography as $item)
 
-            </h2>
+<div class="col-lg-3 col-md-6">
 
-            <p class="text-muted">
+<div class="stat-card h-100">
 
-                Data umum mengenai kondisi
-                masyarakat Nagari Sinyamu.
+<i class="bi {{ $item['icon'] }}" aria-hidden="true"></i>
 
-            </p>
+<h2 class="counter"
+data-target="{{ $item['value'] }}">
 
-        </div>
+0
 
-        <div class="row g-4">
+</h2>
 
-            <div class="col-lg-3 col-md-6">
+<p>{{ $item['label'] }}</p>
 
-                <div class="stat-card">
+</div>
 
-                    <i class="bi bi-people-fill"></i>
+</div>
 
-                    <h2 class="counter"
-                        data-target="2458">
+@endforeach
 
-                        0
+</div>
 
-                    </h2>
-
-                    <p>
-
-                        Jumlah Penduduk
-
-                    </p>
-
-                </div>
-
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-
-                <div class="stat-card">
-
-                    <i class="bi bi-house-door-fill"></i>
-
-                    <h2 class="counter"
-                        data-target="624">
-
-                        0
-
-                    </h2>
-
-                    <p>
-
-                        Kepala Keluarga
-
-                    </p>
-
-                </div>
-
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-
-                <div class="stat-card">
-
-                    <i class="bi bi-pin-map-fill"></i>
-
-                    <h2 class="counter"
-                        data-target="4">
-
-                        0
-
-                    </h2>
-
-                    <p>
-
-                        Jumlah Jorong
-
-                    </p>
-
-                </div>
-
-            </div>
-
-            <div class="col-lg-3 col-md-6">
-
-                <div class="stat-card">
-
-                    <i class="bi bi-globe-asia-australia"></i>
-
-                    <h2>
-
-                        35 km²
-
-                    </h2>
-
-                    <p>
-
-                        Luas Wilayah
-
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
-{{-- ===========================================
+{{-- =========================================================
     GEOGRAFIS
-=========================================== --}}
-
+========================================================= --}}
 <section id="geografis" class="geography-section">
 
-    <div class="container">
+<div class="container">
 
-        <div class="text-center mb-5">
+<div class="text-center mb-5">
 
-            <span class="section-label">
+<span class="section-label">Geografis</span>
 
-                Geografis
+<h2 class="section-title">Letak Wilayah Nagari</h2>
 
-            </span>
+</div>
 
-            <h2 class="section-title">
+<div class="row g-5">
 
-                Letak Wilayah Nagari
+<div class="col-lg-7">
 
-            </h2>
+<div class="map-card">
 
-            <p class="text-muted">
+<div class="ratio ratio-16x9">
 
-                Informasi mengenai letak geografis
-                Nagari Sinyamu.
+<iframe
+src="{{ $geography['map'] }}"
+loading="lazy"
+style="border:0;"
+allowfullscreen
+referrerpolicy="no-referrer-when-downgrade">
+</iframe>
 
-            </p>
+</div>
 
-        </div>
+</div>
 
-        <div class="row g-5 align-items-center">
+</div>
 
-            <div class="col-lg-7">
+<div class="col-lg-5">
 
-                <div class="map-card">
+<div class="profile-card">
 
-                    <div class="ratio ratio-16x9">
+<h3 class="mb-4">Informasi Wilayah</h3>
 
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb="
-                            style="border:0;"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
+@php
+$info = [
+'Provinsi'=>$geography['province'],
+'Kabupaten'=>$geography['regency'],
+'Kecamatan'=>$geography['district'],
+'Luas Wilayah'=>$geography['area'],
+'Jumlah Jorong'=>$geography['jorong'],
+'Ketinggian'=>$geography['elevation'],
+];
+@endphp
 
-                        </iframe>
+@foreach($info as $label=>$value)
 
-                    </div>
+<div class="geo-item">
 
-                </div>
+<strong>{{ $label }}</strong>
 
-            </div>
+<span>{{ $value }}</span>
 
-            <div class="col-lg-5">
+</div>
 
-                <div class="profile-card">
+@endforeach
 
-                    <h3 class="mb-4">
+</div>
 
-                        Informasi Wilayah
+</div>
 
-                    </h3>
+</div>
 
-                    <div class="geo-item">
-
-                        <strong>Provinsi</strong>
-
-                        <span>Sumatera Barat</span>
-
-                    </div>
-
-                    <div class="geo-item">
-
-                        <strong>Kabupaten</strong>
-
-                        <span>Sijunjung
-
-                    </div>
-
-                    <div class="geo-item">
-
-                        <strong>Kecamatan</strong>
-
-                        <span>Tanjung Gadang</span>
-
-                    </div>
-
-                    <div class="geo-item">
-
-                        <strong>Luas Wilayah</strong>
-
-                        <span>35 Km²</span>
-
-                    </div>
-
-                    <div class="geo-item">
-
-                        <strong>Jumlah Jorong</strong>
-
-                        <span>3 Jorong</span>
-
-                    </div>
-
-                    <div class="geo-item">
-
-                        <strong>Ketinggian</strong>
-
-                        <span>± 500 mdpl</span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
-
-
-{{-- ===========================================
-    CALL TO ACTION
-=========================================== --}}
-
+{{-- =========================================================
+    CTA
+========================================================= --}}
 <section class="profile-cta">
 
-    <div class="container">
+<div class="container">
 
-        <div class="cta-box text-center">
+<div class="cta-box text-center">
 
-            <h2>
+<h2>{{ $cta['title'] }}</h2>
 
-                Mari Bersama Membangun
-                Nagari Sinyamu
+<p>{{ $cta['description'] }}</p>
 
-            </h2>
+<a href="{{ route('contact') }}"
+class="btn btn-success btn-lg px-5">
 
-            <p>
+{{ $cta['button'] }}
 
-                Pemerintah Nagari Sinyamu
-                berkomitmen memberikan pelayanan
-                terbaik kepada seluruh masyarakat.
+</a>
 
-            </p>
+</div>
 
-            <div class="mt-4">
-
-                <a href="{{ url('/kontak') }}"
-                    class="btn btn-success btn-lg px-5">
-
-                    Hubungi Kami
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 

@@ -23,9 +23,7 @@ HERO
             <div class="col-lg-7">
 
                 <span class="hero-badge">
-                <h4>
                     Selamat Datang di
-                </h4>
                 </span>
 
                 <h1>
@@ -45,15 +43,14 @@ HERO
 
                 <div class="hero-button">
 
-                    <a href="#"
-
-                        class="btn btn-success btn-lg">
-
-                        Profil Nagari
-
+                    <a
+                        href="{{ route('profile') }}"
+                        class="btn btn-success btn-lg"
+                    >
+                    Profil Nagari
                     </a>
 
-                    <a href="#"
+                    <a href="{{ route('contact') }}"
 
                         class="btn btn-warning btn-lg">
 
@@ -85,7 +82,7 @@ STATISTIK
 
                 <div class="stat-card">
 
-                    <i class="bi bi-people-fill"></i>
+                    <i class="bi bi-people-fill" aria-hidden="true"></i>
 
                     <h2>2.458</h2>
 
@@ -99,7 +96,7 @@ STATISTIK
 
                 <div class="stat-card">
 
-                    <i class="bi bi-shop"></i>
+                    <i class="bi bi-shop" aria-hidden="true"></i>
 
                     <h2>128</h2>
 
@@ -113,7 +110,7 @@ STATISTIK
 
                 <div class="stat-card">
 
-                    <i class="bi bi-newspaper"></i>
+                    <i class="bi bi-newspaper" aria-hidden="true"></i>
 
                     <h2>56</h2>
 
@@ -127,7 +124,7 @@ STATISTIK
 
                 <div class="stat-card">
 
-                    <i class="bi bi-calendar-event"></i>
+                    <i class="bi bi-calendar-event" aria-hidden="true"></i>
 
                     <h2>24</h2>
 
@@ -155,8 +152,9 @@ STATISTIK
 
                     <img
                         src="{{ asset('assets/images/wali.jpg') }}"
-                        alt="Wali Nagari">
-
+                        alt="Wali Nagari"
+                        loading="lazy"
+                    >
                 </div>
 
             </div>
@@ -191,13 +189,6 @@ STATISTIK
 
                 </p>
 
-                <a href="#"
-                    class="btn btn-success mt-3">
-
-                    Selengkapnya
-
-                </a>
-
             </div>
 
         </div>
@@ -220,7 +211,10 @@ TENTANG
 
                 <img
                     src="{{ asset('assets/images/about.jpg') }}"
-                    class="img-fluid rounded-4">
+                    alt="Nagari Sinyamu"
+                    class="img-fluid rounded-4"
+                    loading="lazy"
+                >
 
             </div>
 
@@ -247,7 +241,7 @@ TENTANG
 
                 </p>
 
-                <a href="#"
+                <a href="{{ route('profile') }}"
 
                     class="btn btn-success">
 
