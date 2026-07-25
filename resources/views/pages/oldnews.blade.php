@@ -173,92 +173,103 @@
             </h2>
 
             <p class="section-heading__description">
-                Ikuti berbagai kegiatan,
-                pembangunan,
-                pelayanan masyarakat,
-                serta pengumuman resmi
-                Pemerintah Nagari Sinyamu.
+                Ikuti berbagai kegiatan, pembangunan,
+                pelayanan masyarakat, serta pengumuman
+                resmi Pemerintah Nagari Sinyamu.
             </p>
 
         </div>
 
-        <div class="row g-4">
 
-            @foreach($news as $item)
+        <div class="latest-news__wrapper">
 
-                <div class="col-lg-4 col-md-6">
+            @foreach ($news as $item)
 
-                    <article class="news-card h-100">
+                <article class="news-card">
 
-                        <a
-                            href="{{ route('news.detail',$item['slug']) }}"
-                            class="news-card__image">
+                    <div class="row align-items-center">
 
-                            <img
-                                src="{{ asset('assets/images/'.$item['image']) }}"
-                                alt="{{ $item['title'] }}">
+                        {{-- Thumbnail --}}
 
-                        </a>
-
-                        <div class="news-card__content">
-
-                            <span class="news-card__category">
-
-                                {{ $item['category'] }}
-
-                            </span>
-
-                            <h3 class="news-card__title">
-
-                                <a href="{{ route('news.detail',$item['slug']) }}">
-
-                                    {{ $item['title'] }}
-
-                                </a>
-
-                            </h3>
-
-                            <div class="news-card__meta">
-
-                                <span>
-
-                                    <i class="bi bi-calendar-event"></i>
-
-                                    {{ $item['date'] }}
-
-                                </span>
-
-                                <span>
-
-                                    <i class="bi bi-person-circle"></i>
-
-                                    {{ $item['author'] }}
-
-                                </span>
-
-                            </div>
-
-                            <p class="news-card__excerpt">
-
-                                {{ $item['excerpt'] }}
-
-                            </p>
+                        <div class="col-lg-4">
 
                             <a
-                                href="{{ route('news.detail',$item['slug']) }}"
-                                class="news-card__button">
+                                href="{{ route('news.detail', $item['slug']) }}"
+                                class="news-card__image">
 
-                                Baca Selengkapnya
-
-                                <i class="bi bi-arrow-right"></i>
+                                <img
+                                    src="{{ asset('assets/images/' . $item['image']) }}"
+                                    alt="{{ $item['title'] }}">
 
                             </a>
 
                         </div>
 
-                    </article>
+                        {{-- Content --}}
 
-                </div>
+                        <div class="col-lg-8">
+
+                            <div class="news-card__content">
+
+                                <span class="news-card__category">
+
+                                    {{ $item['category'] }}
+
+                                </span>
+
+                                <h3 class="news-card__title">
+
+                                    <a href="{{ route('news.detail', $item['slug']) }}">
+
+                                        {{ $item['title'] }}
+
+                                    </a>
+
+                                </h3>
+
+                                <div class="news-card__meta">
+
+                                    <span>
+
+                                        <i class="bi bi-calendar-event"></i>
+
+                                        {{ $item['date'] }}
+
+                                    </span>
+
+                                    <span>
+
+                                        <i class="bi bi-person-circle"></i>
+
+                                        {{ $item['author'] }}
+
+                                    </span>
+
+                                </div>
+
+                                <p class="news-card__excerpt">
+
+                                    {{ $item['excerpt'] }}
+
+                                </p>
+
+                                <a
+                                    href="{{ route('news.detail', $item['slug']) }}"
+                                    class="news-card__button">
+
+                                    Baca Selengkapnya
+
+                                    <i class="bi bi-arrow-right"></i>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
 
             @endforeach
 

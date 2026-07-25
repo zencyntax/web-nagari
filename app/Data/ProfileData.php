@@ -55,7 +55,11 @@ class ProfileData
 
     public static function vision(): string
     {
-        return 'Mewujudkan Nagari Idaman, Pemerintahan Yang Bersih, Masyarakat Sejahtera Aman Sentosa Dalam Bingkai NKRI.';
+        return 'Sesuai dengan kondisi objektif, tantangan dan harapan Nagari Sinyamu ditentukan Visi Nagari Sinyamu Kec. Tanjung Gadang Kabupaten Sijunjung:
+
+“Mewujudkan Nagari Idaman, Pemerintahan Yang Bersih, Masyarakat Sejahtera Aman Sentosa Dalam Bingkai NKRI”
+
+dalam artian menjadikan Nagari Sinyamu masa yang akan datang yang menitik beratkan pembangunan Nagari Sinyamu dengan sistim musyawarah dan mufakat, persaudaraan yang tinggi menuju Nagari yang aman dan damai dan masyarakatnya bertaqwa, sejahtera, madani, cinta tanah air, menjunjung tinggi supremasi hukum dan hak asasi manusia, sadar lingkungan, menguasai ilmu pengetahuan dan teknologi dalam wadah Negara Kesatuan Republik Indonesia.';
     }
 
     public static function missions(): array

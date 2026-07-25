@@ -43,7 +43,8 @@
             <ul class="navbar-nav ms-auto align-items-lg-center">
 
                 <li class="nav-item">
-                    <a href="/" class="nav-link active">
+                    <a href="{{ route('home') }}"
+                        class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}">
                         Beranda
                     </a>
                 </li>
@@ -87,13 +88,14 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route("government")}}" class="nav-link">
+                    <a href="{{ route("government")}}" class="nav-link {{ request()->routeIs('government') ? 'active' : '' }}">
                         Pemerintahan
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('umkm') }}"
+                    class="nav-link {{ request()->routeIs('umkm*') ? 'active' : '' }}">
                         UMKM
                     </a>
                 </li>

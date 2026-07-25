@@ -1,0 +1,260 @@
+/* ======================================================
+   HERO
+====================================================== */
+
+.detail-hero{
+    padding:120px 0 40px;
+    background:linear-gradient(135deg,#f8fafc,#eef8f2);
+}
+
+.breadcrumb-nav{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:10px;
+    font-size:.95rem;
+}
+
+.breadcrumb-nav a{
+    text-decoration:none;
+    color:var(--secondary);
+    font-weight:500;
+    transition:.3s;
+}
+
+.breadcrumb-nav a:hover{
+    color:var(--primary);
+}
+
+.breadcrumb-nav span{
+    color:#64748b;
+}
+
+/* ======================================================
+   DETAIL
+====================================================== */
+
+.detail-section{
+    padding:70px 0 90px;
+}
+
+.detail-image{
+    width:100%;
+    border-radius:24px;
+    object-fit:cover;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.category-badge{
+    display:inline-block;
+    padding:6px 14px;
+    border-radius:50px;
+    background:rgba(22,163,74,.12);
+    color:var(--secondary);
+    font-size:.85rem;
+    font-weight:600;
+    margin-bottom:18px;
+}
+
+.detail-section h1{
+    color:var(--primary);
+    font-weight:700;
+    margin-bottom:25px;
+}
+
+.info-list{
+    margin-bottom:30px;
+}
+
+.info-item{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:15px;
+    color:#475569;
+    font-size:1rem;
+}
+
+.info-item i{
+    color:var(--secondary);
+    font-size:1.1rem;
+}
+
+.description{
+    color:#64748b;
+    line-height:1.9;
+    text-align:justify;
+}
+
+/* ======================================================
+   BACK BUTTON
+====================================================== */
+
+.back-button{
+    margin-top:35px;
+}
+
+.back-button a{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+    color:var(--secondary);
+    font-weight:600;
+    transition:.3s;
+}
+
+.back-button a:hover{
+    gap:16px;
+    color:var(--primary);
+}
+
+/* ======================================================
+   SECTION TITLE
+====================================================== */
+
+.section-title{
+    max-width:700px;
+    margin:0 auto 60px;
+}
+
+.section-title span{
+    color:var(--secondary);
+    font-weight:600;
+}
+
+.section-title h2{
+    color:var(--primary);
+    font-weight:700;
+    margin:12px 0;
+}
+
+.section-title p{
+    color:#64748b;
+}
+
+/* ======================================================
+   GALLERY
+====================================================== */
+
+.gallery-section{
+    padding:90px 0;
+    background:#f8fafc;
+}
+
+.gallery-image{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    border-radius:20px;
+    transition:.35s;
+    box-shadow:0 8px 25px rgba(0,0,0,.06);
+}
+
+.gallery-image:hover{
+    transform:translateY(-6px);
+    box-shadow:0 18px 35px rgba(0,0,0,.12);
+}
+
+/* ======================================================
+   CTA
+====================================================== */
+
+.cta-section{
+    padding:90px 0;
+}
+
+.cta-box{
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    color:#fff;
+    border-radius:28px;
+    padding:60px;
+    text-align:center;
+}
+
+.cta-box h2{
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.cta-box p{
+    max-width:700px;
+    margin:0 auto 35px;
+    line-height:1.8;
+}
+
+.btn-primary-custom{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:14px 28px;
+    background:#fff;
+    color:var(--primary);
+    text-decoration:none;
+    border-radius:50px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-primary-custom:hover{
+    color:var(--primary);
+    transform:translateY(-3px);
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media(max-width:992px){
+
+    .detail-section{
+        text-align:center;
+    }
+
+    .info-item{
+        justify-content:center;
+    }
+
+    .description{
+        text-align:left;
+    }
+
+    .cta-box{
+        padding:45px 35px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .detail-hero{
+        padding:100px 0 35px;
+    }
+
+    .detail-section,
+    .gallery-section,
+    .cta-section{
+        padding:70px 0;
+    }
+
+    .gallery-image{
+        height:220px;
+    }
+
+    .cta-box{
+        padding:35px 25px;
+    }
+
+}
+
+@media(max-width:576px){
+
+    .detail-section h1{
+        font-size:2rem;
+    }
+
+    .breadcrumb-nav{
+        font-size:.85rem;
+    }
+
+}
