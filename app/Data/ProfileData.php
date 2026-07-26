@@ -90,7 +90,6 @@ dalam artian menjadikan Nagari Sinyamu masa yang akan datang yang menitik beratk
         return [
 
             [
-
                 'icon' => 'bi-people-fill',
 
                 'value' => 1201,
@@ -98,20 +97,22 @@ dalam artian menjadikan Nagari Sinyamu masa yang akan datang yang menitik beratk
                 'label' => 'Jumlah Penduduk',
 
                 'counter' => true,
-                    'details' => [
-                        [
+
+                'details' => [
+
+                    [
                         'icon' => 'bi-gender-male',
                         'label' => 'Laki-laki',
                         'value' => 777,
-                        ],
+                    ],
 
-                        [
+                    [
                         'icon' => 'bi-gender-female',
                         'label' => 'Perempuan',
                         'value' => 424,
-                        ],
-
                     ],
+
+                ],
 
             ],
 
@@ -124,18 +125,22 @@ dalam artian menjadikan Nagari Sinyamu masa yang akan datang yang menitik beratk
                 'label' => 'Kepala Keluarga',
 
                 'counter' => true,
-                'details'=>[
+
+                'details' => [
+
                     [
                         'icon' => 'bi-gender-male',
                         'label' => 'KK Laki-laki',
                         'value' => 268,
                     ],
+
                     [
                         'icon' => 'bi-gender-female',
                         'label' => 'KK Perempuan',
                         'value' => 27,
-                    ]
-                ]
+                    ],
+
+                ],
 
             ],
 
@@ -148,23 +153,29 @@ dalam artian menjadikan Nagari Sinyamu masa yang akan datang yang menitik beratk
                 'label' => 'Jumlah Jorong',
 
                 'counter' => true,
-                'details'=>[
+
+                'details' => [
+
                     [
                         'icon' => 'bi-pin-map-fill',
                         'label' => 'Jorong Koto Sinyamu',
                         'value' => null,
                     ],
+
                     [
                         'icon' => 'bi-pin-map-fill',
                         'label' => 'Jorong Polak Sinyamu',
                         'value' => null,
                     ],
+
                     [
                         'icon' => 'bi-pin-map-fill',
                         'label' => 'Jorong Kumbayak',
                         'value' => null,
-                    ]
-                ]
+                    ],
+
+                ],
+
             ],
 
             [
@@ -176,18 +187,23 @@ dalam artian menjadikan Nagari Sinyamu masa yang akan datang yang menitik beratk
                 'label' => 'Luas Wilayah',
 
                 'counter' => false,
-                'details'=>[
+
+                'details' => [
+
                     [
                         'icon' => 'bi-arrow-up-right-circle-fill',
                         'label' => 'Ketinggian',
                         'value' => '±125 mdpl',
                     ],
+
                     [
                         'icon' => 'bi-geo-alt-fill',
                         'label' => 'Kecamatan',
                         'value' => 'Tanjung Gadang',
-                    ]
-                ]
+                    ],
+
+                ],
+
             ],
 
         ];
@@ -202,51 +218,33 @@ dalam artian menjadikan Nagari Sinyamu masa yang akan datang yang menitik beratk
             'items' => [
 
                 [
-
                     'label' => 'Provinsi',
-
                     'value' => 'Sumatera Barat',
-
                 ],
 
                 [
-
                     'label' => 'Kabupaten',
-
                     'value' => 'Kabupaten Sijunjung',
-
                 ],
 
                 [
-
                     'label' => 'Kecamatan',
-
                     'value' => 'Tanjung Gadang',
-
                 ],
 
                 [
-
                     'label' => 'Luas Wilayah',
-
                     'value' => '12,1 km²',
-
                 ],
 
                 [
-
                     'label' => 'Jumlah Jorong',
-
                     'value' => '3 Jorong',
-
                 ],
 
                 [
-
                     'label' => 'Ketinggian',
-
                     'value' => '±125 mdpl',
-
                 ],
 
             ],

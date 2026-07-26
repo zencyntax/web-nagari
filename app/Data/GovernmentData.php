@@ -17,11 +17,10 @@ class GovernmentData
      */
     public static function leader(): array
     {
-        return [
-            'name' => 'Amris Saputra',
-            'position' => 'Wali Nagari',
-            'photo' => self::avatar(),
-        ];
+        return self::official(
+            'Amris Saputra',
+            'Wali Nagari'
+        );
     }
 
     /**
@@ -29,11 +28,10 @@ class GovernmentData
      */
     public static function secretary(): array
     {
-        return [
-            'name' => 'Harry Wineidi Putama',
-            'position' => 'Sekretaris Nagari',
-            'photo' => self::avatar(),
-        ];
+        return self::official(
+            'Harry Wineidi Putama',
+            'Sekretaris Nagari'
+        );
     }
 
     /**
@@ -43,68 +41,59 @@ class GovernmentData
     {
         return [
 
-            [
-                'id' => 1,
-                'name' => 'Desi Purnama Sari',
-                'position' => 'Kaur Umum',
-                'photo' => self::avatar(),
-            ],
+            self::staffMember(
+                1,
+                'Desi Purnama Sari',
+                'Kaur Umum'
+            ),
 
-            [
-                'id' => 2,
-                'name' => 'Yelli Yanti',
-                'position' => 'Kaur Keuangan',
-                'photo' => self::avatar(),
-            ],
+            self::staffMember(
+                2,
+                'Yelli Yanti',
+                'Kaur Keuangan'
+            ),
 
-            [
-                'id' => 3,
-                'name' => 'Nama Kaur Perencanaan',
-                'position' => 'Kaur Perencanaan',
-                'photo' => self::avatar(),
-            ],
+            self::staffMember(
+                3,
+                'Nama Kaur Perencanaan',
+                'Kaur Perencanaan'
+            ),
 
-            [
-                'id' => 4,
-                'name' => 'Vina Refolinda',
-                'position' => 'Kasi Pemerintahan',
-                'photo' => self::avatar(),
-            ],
+            self::staffMember(
+                4,
+                'Vina Refolinda',
+                'Kasi Pemerintahan'
+            ),
 
-            [
-                'id' => 5,
-                'name' => 'Arlis Yul Yentri',
-                'position' => 'Kasi Pelayanan',
-                'photo' => self::avatar(),
-            ],
+            self::staffMember(
+                5,
+                'Arlis Yul Yentri',
+                'Kasi Pelayanan'
+            ),
 
-            [
-                'id' => 6,
-                'name' => 'Dhea Rahma Fitri',
-                'position' => 'Kasi Kesejahteraan',
-                'photo' => self::avatar(),
-            ],
+            self::staffMember(
+                6,
+                'Dhea Rahma Fitri',
+                'Kasi Kesejahteraan'
+            ),
 
-            [
-                'id' => 7,
-                'name' => 'Syaparudin',
-                'position' => 'KA. Jorong Koto Sinyamu',
-                'photo' => self::avatar(),
-            ],
+            self::staffMember(
+                7,
+                'Syaparudin',
+                'KA. Jorong Koto Sinyamu'
+            ),
 
-            [
-                'id' => 8,
-                'name' => 'Musdaril',
-                'position' => 'KA. Jorong Polak Sinyamu',
-                'photo' => self::avatar(),
-            ],
+            self::staffMember(
+                8,
+                'Musdaril',
+                'KA. Jorong Polak Sinyamu'
+            ),
 
-            [
-                'id' => 9,
-                'name' => 'Dai Astuti Darma',
-                'position' => 'KA. Jorong Kumbayak',
-                'photo' => self::avatar(),
-            ],
+            self::staffMember(
+                9,
+                'Dai Astuti Darma',
+                'KA. Jorong Kumbayak'
+            ),
 
         ];
     }
@@ -116,29 +105,90 @@ class GovernmentData
     {
         return [
 
-            [
-                'icon' => 'bi-people-fill',
-                'title' => 'BAMUS',
-                'desc' => 'Badan Musyawarah Nagari yang berperan sebagai mitra Pemerintah Nagari dalam menyusun kebijakan.',
-            ],
+            self::institution(
+                'bi-people-fill',
+                'BAMUS',
+                'Badan Musyawarah Nagari yang berperan sebagai mitra Pemerintah Nagari dalam menyusun kebijakan.'
+            ),
 
-            [
-                'icon' => 'bi-house-heart-fill',
-                'title' => 'PKK',
-                'desc' => 'Pemberdayaan dan Kesejahteraan Keluarga yang mendukung peningkatan kesejahteraan masyarakat.',
-            ],
+            self::institution(
+                'bi-house-heart-fill',
+                'PKK',
+                'Pemberdayaan dan Kesejahteraan Keluarga yang mendukung peningkatan kesejahteraan masyarakat.'
+            ),
 
-            [
-                'icon' => 'bi-building',
-                'title' => 'LPM',
-                'desc' => 'Lembaga Pemberdayaan Masyarakat yang membantu pelaksanaan pembangunan nagari.',
-            ],
+            self::institution(
+                'bi-building',
+                'LPM',
+                'Lembaga Pemberdayaan Masyarakat yang membantu pelaksanaan pembangunan nagari.'
+            ),
 
-            [
-                'icon' => 'bi-stars',
-                'title' => 'Karang Taruna',
-                'desc' => 'Organisasi kepemudaan yang berperan dalam kegiatan sosial, budaya, dan pembangunan masyarakat.',
-            ],
+            self::institution(
+                'bi-stars',
+                'Karang Taruna',
+                'Organisasi kepemudaan yang berperan dalam kegiatan sosial, budaya, dan pembangunan masyarakat.'
+            ),
+
+        ];
+    }
+
+    /**
+     * Helper data pejabat.
+     */
+    private static function official(
+        string $name,
+        string $position
+    ): array {
+
+        return [
+
+            'name' => $name,
+
+            'position' => $position,
+
+            'photo' => self::avatar(),
+
+        ];
+    }
+
+    /**
+     * Helper data perangkat.
+     */
+    private static function staffMember(
+        int $id,
+        string $name,
+        string $position
+    ): array {
+
+        return [
+
+            'id' => $id,
+
+            'name' => $name,
+
+            'position' => $position,
+
+            'photo' => self::avatar(),
+
+        ];
+    }
+
+    /**
+     * Helper data lembaga.
+     */
+    private static function institution(
+        string $icon,
+        string $title,
+        string $desc
+    ): array {
+
+        return [
+
+            'icon' => $icon,
+
+            'title' => $title,
+
+            'desc' => $desc,
 
         ];
     }

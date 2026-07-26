@@ -2,27 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Data\NewsData;
+use Illuminate\View\View;
 
 class NewsController extends Controller
 {
-    public function index()
+    public function index(): View
     {
-        $news = NewsData::all();
-        return view('pages.news', compact('news'));
+        return view('pages.news', [
+            'hero' => NewsData::hero(),
+            'featured' => NewsData::featured(),
+            'news' => NewsData::news(),
+        ]);
     }
 
-    public function show($slug)
+    public function show(string $slug): View
     {
-        $news = collect(NewsData::all())
-            ->firstWhere('slug', $slug);
+        $details = NewsData::details();
 
-        abort_if(!$news, 404);
+        abort_unless(isset($details[$slug]), 404);
 
-        return view(
-            'pages.news-detail',
-            compact('news')
-        );
+        return view('pages.news-detail', [
+            'news' => $details[$slug],
+        ]);
     }
 }

@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Data\ProfileData;
+use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         return view('pages.profile', [
             'hero'       => ProfileData::hero(),

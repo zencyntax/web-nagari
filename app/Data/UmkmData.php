@@ -4,7 +4,7 @@ namespace App\Data;
 
 class UmkmData
 {
-    public static function hero()
+    public static function hero(): array
     {
         return [
             'badge' => 'UMKM Nagari',
@@ -13,7 +13,7 @@ class UmkmData
         ];
     }
 
-    public static function about()
+    public static function about(): array
     {
         return [
             'title' => 'Tentang UMKM Nagari Sinyamu',
@@ -28,88 +28,66 @@ class UmkmData
         ];
     }
 
-    public static function umkms()
+    public static function umkms(): array
     {
         return [
 
-            [
-                'name' => 'Nama UMKM',
-                'slug' => 'nama-umkm',
-                'category' => 'Makanan',
-                'owner' => 'Nama Pemilik',
-                'location' => 'Jorong Contoh',
-                'image' => 'images/umkm/umkm-1.jpg',
-                'button' => 'Lihat Detail',
-            ],
+            self::umkm(
+                'Nama UMKM',
+                'nama-umkm',
+                'Makanan',
+                'Nama Pemilik',
+                'Jorong Contoh',
+                'images/umkm/umkm-1.jpg'
+            ),
 
-            [
-                'name' => 'Nama UMKM',
-                'slug' => 'nama-umkm-2',
-                'category' => 'Kerajinan',
-                'owner' => 'Nama Pemilik',
-                'location' => 'Jorong Contoh',
-                'image' => 'images/umkm/umkm-2.jpg',
-                'button' => 'Lihat Detail',
-            ],
+            self::umkm(
+                'Nama UMKM',
+                'nama-umkm-2',
+                'Kerajinan',
+                'Nama Pemilik',
+                'Jorong Contoh',
+                'images/umkm/umkm-2.jpg'
+            ),
 
         ];
     }
 
-    public static function details()
+    public static function details(): array
     {
         return [
 
-            'nama-umkm' => [
-
-                'name' => 'Nama UMKM',
-
-                'category' => 'Makanan',
-
-                'owner' => 'Nama Pemilik',
-
-                'location' => 'Jorong Contoh',
-
-                'description' => 'Deskripsi lengkap mengenai UMKM. Jelaskan sejarah singkat usaha, produk yang dihasilkan, serta peran UMKM tersebut dalam mendukung perekonomian masyarakat Nagari Sinyamu.',
-
-                'image' => 'images/umkm/umkm-1.jpg',
-
-                'gallery' => [
-
+            'nama-umkm' => self::detail(
+                'Nama UMKM',
+                'Makanan',
+                'Nama Pemilik',
+                'Jorong Contoh',
+                'Deskripsi lengkap mengenai UMKM. Jelaskan sejarah singkat usaha, produk yang dihasilkan, serta peran UMKM tersebut dalam mendukung perekonomian masyarakat Nagari Sinyamu.',
+                'images/umkm/umkm-1.jpg',
+                [
                     'images/umkm/gallery-1.jpg',
                     'images/umkm/gallery-2.jpg',
                     'images/umkm/gallery-3.jpg',
+                ]
+            ),
 
-                ],
-
-            ],
-
-            'nama-umkm-2' => [
-
-                'name' => 'Nama UMKM',
-
-                'category' => 'Kerajinan',
-
-                'owner' => 'Nama Pemilik',
-
-                'location' => 'Jorong Contoh',
-
-                'description' => 'Deskripsi lengkap mengenai UMKM.',
-
-                'image' => 'images/umkm/umkm-2.jpg',
-
-                'gallery' => [
-
+            'nama-umkm-2' => self::detail(
+                'Nama UMKM',
+                'Kerajinan',
+                'Nama Pemilik',
+                'Jorong Contoh',
+                'Deskripsi lengkap mengenai UMKM.',
+                'images/umkm/umkm-2.jpg',
+                [
                     'images/umkm/gallery-4.jpg',
                     'images/umkm/gallery-5.jpg',
-
-                ],
-
-            ],
+                ]
+            ),
 
         ];
     }
 
-    public static function join()
+    public static function join(): array
     {
         return [
 
@@ -132,7 +110,7 @@ class UmkmData
         ];
     }
 
-    public static function cta()
+    public static function cta(): array
     {
         return [
 
@@ -141,6 +119,69 @@ class UmkmData
             'description' => 'Dengan membeli produk lokal, Anda turut membantu meningkatkan perekonomian masyarakat Nagari Sinyamu.',
 
             'button' => 'Kembali ke Beranda',
+
+        ];
+    }
+
+    /**
+     * Helper untuk membuat data UMKM.
+     */
+    private static function umkm(
+        string $name,
+        string $slug,
+        string $category,
+        string $owner,
+        string $location,
+        string $image
+    ): array {
+
+        return [
+
+            'name' => $name,
+
+            'slug' => $slug,
+
+            'category' => $category,
+
+            'owner' => $owner,
+
+            'location' => $location,
+
+            'image' => $image,
+
+            'button' => 'Lihat Detail',
+
+        ];
+    }
+
+    /**
+     * Helper untuk membuat detail UMKM.
+     */
+    private static function detail(
+        string $name,
+        string $category,
+        string $owner,
+        string $location,
+        string $description,
+        string $image,
+        array $gallery
+    ): array {
+
+        return [
+
+            'name' => $name,
+
+            'category' => $category,
+
+            'owner' => $owner,
+
+            'location' => $location,
+
+            'description' => $description,
+
+            'image' => $image,
+
+            'gallery' => $gallery,
 
         ];
     }

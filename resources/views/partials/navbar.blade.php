@@ -108,10 +108,12 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        Agenda
-                    </a>
-                </li>
+    <a
+        href="{{ route('agenda') }}"
+        class="nav-link {{ request()->routeIs('agenda*') ? 'active' : '' }}">
+        Agenda
+    </a>
+</li>
 
                 <li class="nav-item">
                     <a href="#" class="nav-link">
@@ -124,7 +126,7 @@
                         Kontak
                     </a>
                 </li>
-
+                {{--
                 <li class="nav-item ms-lg-3">
 
                     <a href="#"
@@ -135,7 +137,7 @@
                     </a>
 
                 </li>
-
+                --}}
             </ul>
 
         </div>

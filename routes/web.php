@@ -7,6 +7,7 @@ use App\Http\Controllers\GovernmentController;
 use App\Http\Controllers\UmkmController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\AgendaController;
 
 Route::get('/', [HomeController::class, 'index'])
     ->name('home');
@@ -22,7 +23,7 @@ Route::get('/umkm', [UmkmController::class, 'index'])
 
 Route::get('/umkm/{slug}', [UmkmController::class, 'show'])
     ->name('umkm.show');
-    
+
 Route::get('/contact', [ContactController::class, 'index'])
     ->name('contact');
 
@@ -31,3 +32,9 @@ Route::get('/news', [NewsController::class, 'index'])
 
 Route::get('/news/{slug}', [NewsController::class, 'show'])
     ->name('news.detail');
+
+Route::get('/agenda', [AgendaController::class, 'index'])
+    ->name('agenda');
+
+Route::get('/agenda/{slug}', [AgendaController::class, 'show'])
+    ->name('agenda.show');

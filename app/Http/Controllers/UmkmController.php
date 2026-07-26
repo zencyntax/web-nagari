@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Data\UmkmData;
+use Illuminate\View\View;
 
 class UmkmController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         return view('pages.umkm', [
             'hero'  => UmkmData::hero(),
@@ -17,7 +18,7 @@ class UmkmController extends Controller
         ]);
     }
 
-    public function show($slug)
+    public function show(string $slug): View
     {
         $details = UmkmData::details();
 
