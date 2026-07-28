@@ -108,21 +108,17 @@
                 </li>
 
                 <li class="nav-item">
-    <a
-        href="{{ route('agenda') }}"
-        class="nav-link {{ request()->routeIs('agenda*') ? 'active' : '' }}">
-        Agenda
-    </a>
-</li>
-
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        Galeri
+                    <a
+                    href="{{ route('agenda') }}"
+                    class="nav-link {{ request()->routeIs('agenda*') ? 'active' : '' }}">
+                    Agenda
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a
+                        class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}"
+                        href="{{ route('contact') }}">
                         Kontak
                     </a>
                 </li>

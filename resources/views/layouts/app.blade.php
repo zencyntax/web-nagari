@@ -75,14 +75,7 @@
     {{-- Footer --}}
     @include('partials.footer')
 
-    {{-- Back To Top --}}
-    <button
-        id="backToTop"
-        class="btn btn-success">
 
-        <i class="bi bi-arrow-up"></i>
-
-    </button>
 
 
     {{-- AOS --}}

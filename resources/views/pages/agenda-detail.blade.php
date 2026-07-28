@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title', $news['title'])
+@section('title', $agenda['title'])
 
 @push('styles')
-    @vite('resources/css/news-detail.css')
+    @vite('resources/css/agenda-detail.css')
 @endpush
 
 @section('content')
@@ -12,47 +12,47 @@
     HERO
 =========================================================== --}}
 
-<section class="news-detail-hero">
+<section class="agenda-detail-hero">
 
     <div class="container">
 
-        <div class="news-detail-hero__content">
+        <div class="agenda-detail-hero__content">
 
-            <span class="news-detail-hero__badge">
+            <span class="agenda-detail-hero__badge">
 
-                BERITA NAGARI
+                AGENDA NAGARI
 
             </span>
 
-            <h1 class="news-detail-hero__title">
+            <h1 class="agenda-detail-hero__title">
 
-                {{ $news['title'] }}
+                {{ $agenda['title'] }}
 
             </h1>
 
-            <div class="news-detail-hero__meta">
+            <div class="agenda-detail-hero__meta">
 
                 <span>
 
                     <i class="bi bi-calendar-event"></i>
 
-                    {{ $news['date'] }}
+                    {{ $agenda['full_date'] }}
 
                 </span>
 
                 <span>
 
-                    <i class="bi bi-person-circle"></i>
+                    <i class="bi bi-clock"></i>
 
-                    {{ $news['author'] }}
+                    {{ $agenda['time'] }}
 
                 </span>
 
                 <span>
 
-                    <i class="bi bi-tag"></i>
+                    <i class="bi bi-geo-alt"></i>
 
-                    {{ $news['category'] }}
+                    {{ $agenda['location'] }}
 
                 </span>
 
@@ -82,9 +82,9 @@
 
             <span>/</span>
 
-            <a href="{{ route('news') }}">
+            <a href="{{ route('agenda') }}">
 
-                Berita
+                Agenda
 
             </a>
 
@@ -92,7 +92,7 @@
 
             <span class="active">
 
-                {{ $news['title'] }}
+                {{ $agenda['title'] }}
 
             </span>
 
@@ -103,50 +103,80 @@
 </section>
 
 {{-- ===========================================================
-    ARTICLE
+    DETAIL
 =========================================================== --}}
 
-<section class="news-detail">
+<section class="agenda-detail">
 
     <div class="container">
 
-        <div class="news-detail__wrapper">
+        <div class="agenda-detail__wrapper">
 
-            {{-- Featured Image --}}
-
-            <div class="news-detail__image">
+            <div class="agenda-detail__image">
 
                 <img
-                    src="{{ asset('assets/'.$news['image']) }}"
-                    alt="{{ $news['title'] }}">
+                    src="{{ asset($agenda['image']) }}"
+                    alt="{{ $agenda['title'] }}">
 
             </div>
 
-            {{-- Content --}}
+            <article class="agenda-detail__content">
 
-            <article class="news-detail__content">
+                <div class="agenda-info">
 
-                @if(is_array($news['content']))
+                    <div class="agenda-info__item">
 
-                    @foreach($news['content'] as $paragraph)
+                        <i class="bi bi-calendar-event-fill"></i>
 
-                        <p>
+                        <div>
 
-                            {{ $paragraph }}
+                            <span>Tanggal</span>
 
-                        </p>
+                            <strong>{{ $agenda['full_date'] }}</strong>
 
-                    @endforeach
+                        </div>
 
-                @else
+                    </div>
+
+                    <div class="agenda-info__item">
+
+                        <i class="bi bi-clock-fill"></i>
+
+                        <div>
+
+                            <span>Waktu</span>
+
+                            <strong>{{ $agenda['time'] }}</strong>
+
+                        </div>
+
+                    </div>
+
+                    <div class="agenda-info__item">
+
+                        <i class="bi bi-geo-alt-fill"></i>
+
+                        <div>
+
+                            <span>Lokasi</span>
+
+                            <strong>{{ $agenda['location'] }}</strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                @foreach($agenda['description'] as $paragraph)
 
                     <p>
 
-                        {{ $news['content'] }}
+                        {{ $paragraph }}
 
                     </p>
 
-                @endif
+                @endforeach
 
             </article>
 
@@ -160,9 +190,9 @@
     GALLERY
 =========================================================== --}}
 
-@if(!empty($news['gallery']))
+@if(!empty($agenda['gallery']))
 
-<section class="news-gallery">
+<section class="agenda-gallery">
 
     <div class="container">
 
@@ -184,17 +214,17 @@
 
         <div class="row g-4">
 
-            @foreach($news['gallery'] as $image)
+            @foreach($agenda['gallery'] as $image)
 
                 <div class="col-lg-4 col-md-6">
 
                     <a
-                        href="{{ asset('assets/'.$image) }}"
+                        href="{{ asset($image) }}"
                         class="gallery-card">
 
                         <img
-                            src="{{ asset('assets/'.$image) }}"
-                            alt="Gallery">
+                            src="{{ asset($image) }}"
+                            alt="{{ $agenda['title'] }}">
 
                         <div class="gallery-card__overlay">
 
@@ -217,10 +247,10 @@
 @endif
 
 {{-- ===========================================================
-    RELATED NEWS
+    RELATED AGENDA
 =========================================================== --}}
 
-<section class="related-news">
+<section class="related-agenda">
 
     <div class="container">
 
@@ -228,13 +258,13 @@
 
             <span class="section-heading__subtitle">
 
-                BERITA LAINNYA
+                AGENDA LAINNYA
 
             </span>
 
             <h2 class="section-heading__title">
 
-                Berita Terkait
+                Agenda Kegiatan Lain
 
             </h2>
 
@@ -242,20 +272,20 @@
 
         <div class="row g-4">
 
-            @foreach($relatedNews as $item)
+            @foreach($relatedAgenda as $item)
 
-                @continue($item['title'] == $news['title'])
+                @continue($item['slug'] == $currentSlug)
 
                 <div class="col-lg-4 col-md-6">
 
                     <article class="related-card">
 
                         <a
-                            href="{{ route('news.detail',$item['slug']) }}"
+                            href="{{ route('agenda.show', $item['slug']) }}"
                             class="related-card__image">
 
                             <img
-                                src="{{ asset('assets/'.$item['image']) }}"
+                                src="{{ asset($item['image']) }}"
                                 alt="{{ $item['title'] }}">
 
                         </a>
@@ -264,13 +294,13 @@
 
                             <span class="related-card__category">
 
-                                {{ $item['category'] }}
+                                Agenda Nagari
 
                             </span>
 
                             <h3>
 
-                                <a href="{{ route('news.detail',$item['slug']) }}">
+                                <a href="{{ route('agenda.show', $item['slug']) }}">
 
                                     {{ $item['title'] }}
 
@@ -284,17 +314,41 @@
 
                                     <i class="bi bi-calendar-event"></i>
 
-                                    {{ $item['date'] }}
+                                    {{ $item['full_date'] }}
+
+                                </span>
+
+                            </div>
+
+                            <div class="related-card__meta">
+
+                                <span>
+
+                                    <i class="bi bi-clock"></i>
+
+                                    {{ $item['time'] }}
+
+                                </span>
+
+                            </div>
+
+                            <div class="related-card__meta">
+
+                                <span>
+
+                                    <i class="bi bi-geo-alt"></i>
+
+                                    {{ $item['location'] }}
 
                                 </span>
 
                             </div>
 
                             <a
-                                href="{{ route('news.detail',$item['slug']) }}"
+                                href="{{ route('agenda.show', $item['slug']) }}"
                                 class="related-card__button">
 
-                                Baca Selengkapnya
+                                Lihat Detail
 
                                 <i class="bi bi-arrow-right"></i>
 
@@ -318,42 +372,41 @@
     CTA
 =========================================================== --}}
 
-<section class="news-detail-cta">
+<section class="agenda-detail-cta">
 
     <div class="container">
 
-        <div class="news-detail-cta__wrapper">
+        <div class="agenda-detail-cta__wrapper">
 
             <span>
 
-                INFORMASI NAGARI
+                AGENDA NAGARI
 
             </span>
 
             <h2>
 
-                Tetap Ikuti Informasi Terbaru
-                Dari Pemerintah Nagari Sinyamu
+                Mari Berpartisipasi Dalam
+                Kegiatan Nagari Sinyamu
 
             </h2>
 
             <p>
 
-                Dapatkan informasi mengenai pembangunan,
-                pelayanan masyarakat,
-                kegiatan nagari,
-                serta pengumuman resmi secara cepat
-                dan terpercaya.
+                Pemerintah Nagari Sinyamu mengajak seluruh masyarakat
+                untuk berpartisipasi aktif dalam setiap kegiatan,
+                musyawarah, pelatihan, maupun kegiatan sosial demi
+                mewujudkan nagari yang maju, mandiri, dan sejahtera.
 
             </p>
 
             <div class="news-detail-cta__buttons">
 
                 <a
-                    href="{{ route('news') }}"
+                    href="{{ route('agenda') }}"
                     class="btn-primary-custom">
 
-                    Kembali ke Berita
+                    Kembali ke Agenda
 
                 </a>
 

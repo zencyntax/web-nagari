@@ -1,0 +1,793 @@
+/* ==========================================================
+   AGENDA PAGE
+========================================================== */
+
+.hero-section {
+    position: relative;
+    padding: 130px 0 100px;
+    background: linear-gradient(
+        135deg,
+        var(--primary) 0%,
+        #1b6d3b 50%,
+        var(--secondary) 100%
+    );
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at top right,
+            rgba(255,255,255,.12),
+            transparent 45%),
+        radial-gradient(circle at bottom left,
+            rgba(255,255,255,.08),
+            transparent 40%);
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .65rem 1.4rem;
+    border-radius: 999px;
+    background: rgba(255,255,255,.15);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.hero-content h1 {
+    color: #fff;
+    font-size: clamp(2.7rem, 5vw, 4.2rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,.92);
+    line-height: 1.9;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+/* ==========================================================
+   SECTION TITLE
+========================================================== */
+
+.section-title {
+    max-width: 700px;
+    margin: 0 auto 4rem;
+}
+
+.section-title span {
+    display: inline-block;
+    color: var(--secondary);
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    margin-bottom: .8rem;
+}
+
+.section-title h2 {
+    color: var(--text);
+    font-size: clamp(2rem,4vw,2.8rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.section-title p {
+    color: #64748B;
+    line-height: 1.8;
+}
+
+/* ==========================================================
+   FEATURED SECTION
+========================================================== */
+
+.featured-section{
+    padding:100px 0;
+    background:#fff;
+}
+
+.featured-card{
+    position:relative;
+    background:#fff;
+    border-radius:28px;
+    overflow:hidden;
+    box-shadow:
+        0 20px 50px rgba(15,23,42,.08),
+        0 8px 20px rgba(15,23,42,.04);
+    transition:.35s ease;
+}
+
+.featured-card:hover{
+    transform:translateY(-8px);
+    box-shadow:
+        0 35px 70px rgba(15,23,42,.12),
+        0 15px 30px rgba(15,23,42,.08);
+}
+
+.featured-card img{
+    width:100%;
+    height:100%;
+    min-height:430px;
+    object-fit:cover;
+    transition:.5s ease;
+}
+
+.featured-card:hover img{
+    transform:scale(1.05);
+}
+
+.featured-content{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    height:100%;
+    padding:3rem;
+}
+
+.featured-header{
+    display:flex;
+    align-items:center;
+    gap:1.5rem;
+    margin-bottom:2rem;
+}
+
+.featured-header h3{
+    font-size:2rem;
+    font-weight:700;
+    color:var(--text);
+    line-height:1.35;
+    margin:0;
+}
+
+.featured-content .btn-primary-custom{
+    margin-top:1rem;
+    width:max-content;
+}
+
+/* ==========================================================
+   CALENDAR CARD
+========================================================== */
+
+.calendar-card{
+    width:78px;
+    min-width:78px;
+    border-radius:18px;
+    overflow:hidden;
+    text-align:center;
+    box-shadow:
+        0 10px 25px rgba(22,163,74,.18);
+}
+
+.calendar-card .month{
+    display:block;
+    background:var(--secondary);
+    color:#fff;
+    font-size:.78rem;
+    font-weight:700;
+    letter-spacing:.08em;
+    padding:.6rem;
+    text-transform:uppercase;
+}
+
+.calendar-card .day{
+    display:block;
+    background:#fff;
+    color:var(--primary);
+    font-size:2rem;
+    font-weight:800;
+    padding:.9rem .5rem;
+}
+
+/* ==========================================================
+   META INFORMATION
+========================================================== */
+
+.agenda-meta{
+    display:flex;
+    flex-direction:column;
+    gap:1rem;
+    margin-bottom:2rem;
+}
+
+.agenda-meta p{
+    display:flex;
+    align-items:center;
+    gap:.8rem;
+    margin:0;
+    color:#64748B;
+    font-size:.96rem;
+}
+
+.agenda-meta i{
+    width:38px;
+    height:38px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:#ECFDF5;
+    color:var(--secondary);
+    font-size:.95rem;
+    flex-shrink:0;
+}
+
+/* ==========================================================
+   BUTTON
+========================================================== */
+
+.btn-primary-custom{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:.6rem;
+    padding:.95rem 1.8rem;
+    border-radius:999px;
+    background:var(--secondary);
+    color:#fff;
+    font-weight:600;
+    text-decoration:none;
+    transition:.3s ease;
+}
+
+.btn-primary-custom:hover{
+    background:var(--primary);
+    color:#fff;
+    transform:translateY(-2px);
+}
+
+/* ==========================================================
+   AGENDA SECTION
+========================================================== */
+
+.agenda-section{
+    padding:100px 0;
+    background:#F8FAFC;
+}
+
+.agenda-card-link{
+    display:block;
+    text-decoration:none;
+    color:inherit;
+    height:100%;
+}
+
+.agenda-card{
+    display:flex;
+    flex-direction:column;
+    height:100%;
+    background:#fff;
+    border-radius:24px;
+    overflow:hidden;
+    transition:.35s ease;
+    box-shadow:
+        0 12px 30px rgba(15,23,42,.06);
+    border:1px solid rgba(15,23,42,.05);
+}
+
+.agenda-card:hover{
+    transform:translateY(-10px);
+    box-shadow:
+        0 25px 60px rgba(15,23,42,.12);
+}
+
+.agenda-card img{
+    width:100%;
+    aspect-ratio:16/10;
+    object-fit:cover;
+    transition:.45s ease;
+}
+
+.agenda-card:hover img{
+    transform:scale(1.08);
+}
+
+.agenda-card-body{
+    display:flex;
+    flex-direction:column;
+    flex:1;
+    padding:1.75rem;
+}
+
+/* ==========================================================
+   CARD HEADER
+========================================================== */
+
+.agenda-card-header{
+    display:flex;
+    align-items:flex-start;
+    gap:1rem;
+    margin-bottom:1.5rem;
+}
+
+.agenda-card-title{
+    flex:1;
+}
+
+.agenda-card-title h4{
+    margin:0;
+    color:var(--text);
+    font-size:1.2rem;
+    line-height:1.45;
+    font-weight:700;
+    transition:.3s;
+}
+
+.agenda-card:hover .agenda-card-title h4{
+    color:var(--secondary);
+}
+
+/* ==========================================================
+   CARD META
+========================================================== */
+
+.agenda-card .agenda-meta{
+    margin-bottom:2rem;
+}
+
+.agenda-card .agenda-meta p{
+    font-size:.92rem;
+}
+
+.agenda-card .agenda-meta i{
+
+    width:34px;
+    height:34px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#ECFDF5;
+
+    color:var(--secondary);
+
+    transition:.3s;
+}
+
+.agenda-card:hover .agenda-meta i{
+
+    background:var(--secondary);
+
+    color:#fff;
+
+}
+
+/* ==========================================================
+   DETAIL BUTTON
+========================================================== */
+
+.detail-btn{
+
+    margin-top:auto;
+
+    display:inline-flex;
+    align-items:center;
+    gap:.65rem;
+
+    font-weight:700;
+
+    color:var(--secondary);
+
+    transition:.35s ease;
+}
+
+.detail-btn i{
+
+    transition:.35s ease;
+
+}
+
+.agenda-card:hover .detail-btn{
+
+    color:var(--primary);
+
+}
+
+.agenda-card:hover .detail-btn i{
+
+    transform:translateX(6px);
+
+}
+
+/* ==========================================================
+   IMAGE EFFECT
+========================================================== */
+
+.agenda-card{
+
+    position:relative;
+
+}
+
+.agenda-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        to top,
+        rgba(20,83,45,.10),
+        transparent 45%
+    );
+
+    opacity:0;
+
+    transition:.4s;
+
+    pointer-events:none;
+
+}
+
+.agenda-card:hover::before{
+
+    opacity:1;
+
+}
+
+.agenda-card{
+
+    animation:fadeUp .6s ease both;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+/* ===========================
+   Large Desktop
+=========================== */
+
+@media (max-width:1200px){
+
+    .featured-content{
+        padding:2.5rem;
+    }
+
+    .featured-header h3{
+        font-size:1.8rem;
+    }
+
+}
+
+/* ===========================
+   Laptop
+=========================== */
+
+@media (max-width:992px){
+
+    .hero-section{
+        padding:110px 0 80px;
+    }
+
+    .featured-section,
+    .agenda-section{
+        padding:80px 0;
+    }
+
+    .featured-card img{
+        min-height:320px;
+    }
+
+    .featured-content{
+        padding:2rem;
+    }
+
+    .featured-header{
+        margin-bottom:1.5rem;
+    }
+
+    .featured-header h3{
+        font-size:1.6rem;
+    }
+
+    .calendar-card{
+        width:70px;
+        min-width:70px;
+    }
+
+    .calendar-card .day{
+        font-size:1.7rem;
+    }
+
+}
+
+/* ===========================
+   Tablet
+=========================== */
+
+@media (max-width:768px){
+
+    .hero-section{
+
+        padding:90px 0 70px;
+
+    }
+
+    .hero-content{
+
+        max-width:100%;
+
+    }
+
+    .hero-content h1{
+
+        font-size:2.5rem;
+
+    }
+
+    .hero-content p{
+
+        font-size:1rem;
+
+    }
+
+    .section-title{
+
+        margin-bottom:3rem;
+
+    }
+
+    .section-title h2{
+
+        font-size:2rem;
+
+    }
+
+    .featured-card{
+
+        border-radius:22px;
+
+    }
+
+    .featured-card img{
+
+        min-height:260px;
+
+    }
+
+    .featured-content{
+
+        padding:1.75rem;
+
+    }
+
+    .featured-header{
+
+        align-items:flex-start;
+
+    }
+
+    .agenda-card{
+
+        border-radius:20px;
+
+    }
+
+    .agenda-card-body{
+
+        padding:1.4rem;
+
+    }
+
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media (max-width:576px){
+
+    .hero-section{
+
+        padding:80px 0 60px;
+
+    }
+
+    .hero-badge{
+
+        font-size:.8rem;
+
+        padding:.55rem 1rem;
+
+    }
+
+    .hero-content h1{
+
+        font-size:2rem;
+
+        line-height:1.3;
+
+    }
+
+    .hero-content p{
+
+        font-size:.95rem;
+
+        line-height:1.8;
+
+    }
+
+    .section-title span{
+
+        font-size:.8rem;
+
+    }
+
+    .section-title h2{
+
+        font-size:1.7rem;
+
+    }
+
+    .section-title p{
+
+        font-size:.95rem;
+
+    }
+
+    .featured-content{
+
+        padding:1.5rem;
+
+    }
+
+    .featured-header{
+
+        gap:.8rem;
+
+    }
+
+    .featured-header h3{
+
+        font-size:1.3rem;
+
+    }
+
+    .calendar-card{
+
+        width:60px;
+
+        min-width:60px;
+
+    }
+
+    .calendar-card .month{
+
+        font-size:.65rem;
+
+        padding:.45rem;
+
+    }
+
+    .calendar-card .day{
+
+        font-size:1.35rem;
+
+        padding:.65rem;
+
+    }
+
+    .agenda-card-body{
+
+        padding:1.25rem;
+
+    }
+
+    .agenda-card-title h4{
+
+        font-size:1.05rem;
+
+    }
+
+    .agenda-meta{
+
+        gap:.8rem;
+
+    }
+
+    .agenda-meta p{
+
+        font-size:.88rem;
+
+    }
+
+    .agenda-meta i{
+
+        width:30px;
+
+        height:30px;
+
+        font-size:.8rem;
+
+    }
+
+    .btn-primary-custom{
+
+        width:100%;
+
+        justify-content:center;
+
+    }
+
+}
+
+/* ===========================
+   Small Mobile
+=========================== */
+
+@media (max-width:400px){
+
+    .hero-content h1{
+
+        font-size:1.75rem;
+
+    }
+
+    .featured-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .agenda-card-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .calendar-card{
+
+        margin-bottom:.5rem;
+
+    }
+
+}

@@ -17,13 +17,15 @@ class NewsController extends Controller
     }
 
     public function show(string $slug): View
-    {
-        $details = NewsData::details();
+{
+    $details = NewsData::details();
 
-        abort_unless(isset($details[$slug]), 404);
+    abort_unless(isset($details[$slug]), 404);
 
-        return view('pages.news-detail', [
-            'news' => $details[$slug],
-        ]);
-    }
+    return view('pages.news-detail', [
+        'news' => $details[$slug],
+        'relatedNews' => NewsData::news(),
+        'currentSlug' => $slug,
+    ]);
+}
 }

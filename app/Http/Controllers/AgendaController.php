@@ -7,6 +7,9 @@ use Illuminate\View\View;
 
 class AgendaController extends Controller
 {
+    /**
+     * Halaman daftar agenda.
+     */
     public function index(): View
     {
         return view('pages.agenda', [
@@ -16,6 +19,9 @@ class AgendaController extends Controller
         ]);
     }
 
+    /**
+     * Halaman detail agenda.
+     */
     public function show(string $slug): View
     {
         $details = AgendaData::details();
@@ -24,6 +30,8 @@ class AgendaController extends Controller
 
         return view('pages.agenda-detail', [
             'agenda' => $details[$slug],
+            'relatedAgenda' => AgendaData::agendas(),
+            'currentSlug' => $slug,
         ]);
     }
 }
