@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Frontend;
 
 use App\Data\AgendaData;
 use Illuminate\View\View;
+use App\Http\Controllers\Controller;
 
 class AgendaController extends Controller
 {

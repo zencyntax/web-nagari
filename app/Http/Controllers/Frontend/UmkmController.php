@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Frontend;
 
 use App\Data\UmkmData;
 use Illuminate\View\View;
+use App\Http\Controllers\Controller;
 
 class UmkmController extends Controller
 {
