@@ -49,6 +49,7 @@ use App\Http\Controllers\Admin\LembagaController;
 use App\Http\Controllers\Admin\UmkmCategoryController;
 use App\Http\Controllers\Admin\UmkmController as AdminUmkmController;
 use App\Http\Controllers\Admin\UmkmGalleryController;
+use App\Http\Controllers\Admin\SettingController;
 
 Route::prefix('admin')
     ->name('admin.')
@@ -68,21 +69,31 @@ Route::prefix('admin')
 
         Route::resource('umkm', AdminUmkmController::class);
 
+
         Route::post(
-    'umkm/{umkm}/gallery',
-    [UmkmGalleryController::class, 'store']
-)->name('umkm.gallery.store');
+            'umkm/{umkm}/gallery',
+            [UmkmGalleryController::class, 'store']
+        )->name('umkm.gallery.store');
 
-Route::put(
-    'umkm-gallery/{gallery}',
-    [UmkmGalleryController::class, 'update']
-)->name('umkm.gallery.update');
+        Route::put(
+            'umkm-gallery/{gallery}',
+            [UmkmGalleryController::class, 'update']
+        )->name('umkm.gallery.update');
 
-Route::delete(
-    'umkm-gallery/{gallery}',
-    [UmkmGalleryController::class, 'destroy']
-)->name('umkm.gallery.destroy');
+        Route::delete(
+            'umkm-gallery/{gallery}',
+            [UmkmGalleryController::class, 'destroy']
+        )->name('umkm.gallery.destroy');
 
+        Route::get(
+            'setting',
+            [SettingController::class, 'edit']
+        )->name('setting.edit');
+
+        Route::put(
+            'setting',
+            [SettingController::class, 'update']
+        )->name('setting.update');
     });
 
 /*

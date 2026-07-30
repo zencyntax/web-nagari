@@ -380,10 +380,18 @@ return [
     ],
 
     [
-        'text' => 'Pengaturan Website',
-        'url'  => '#',
-        'icon' => 'fas fa-cog',
+    'text' => 'PENGATURAN',
+    'icon' => 'fas fa-cogs',
+    'submenu' => [
+
+        [
+            'text' => 'Pengaturan Website',
+            'route' => 'admin.setting.edit',
+            'icon' => 'fas fa-globe',
+        ],
+
     ],
+],
 
 ],
 
