@@ -10,42 +10,44 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-{
-    Schema::create('umkms', function (Blueprint $table) {
-        $table->id();
+    {
+        Schema::create('umkms', function (Blueprint $table) {
+            $table->id();
 
-        // Relasi kategori
-        $table->foreignId('umkm_category_id')
-            ->constrained('umkm_categories')
-            ->cascadeOnUpdate()
-            ->restrictOnDelete();
+            // Relasi kategori
+            $table->foreignId('umkm_category_id')
+                ->constrained('umkm_categories')
+                ->cascadeOnUpdate()
+                ->restrictOnDelete();
 
-        // Informasi UMKM
-        $table->string('nama');
-        $table->string('pemilik');
-        $table->string('logo')->nullable();
-        $table->string('foto')->nullable();
+            // Informasi UMKM
+            $table->string('nama');
+            $table->string('slug')->unique();
+            $table->string('pemilik');
 
-        // Deskripsi
-        $table->longText('deskripsi')->nullable();
+            $table->string('logo')->nullable();
+            $table->string('foto')->nullable();
 
-        // Kontak
-        $table->string('alamat')->nullable();
-        $table->string('telepon', 30)->nullable();
-        $table->string('email')->nullable();
-        $table->string('website')->nullable();
+            // Deskripsi
+            $table->longText('deskripsi')->nullable();
 
-        // Media Sosial
-        $table->string('facebook')->nullable();
-        $table->string('instagram')->nullable();
-        $table->string('tiktok')->nullable();
+            // Kontak
+            $table->string('alamat')->nullable();
+            $table->string('telepon', 30)->nullable();
+            $table->string('email')->nullable();
+            $table->string('website')->nullable();
 
-        // Status tampil di website
-        $table->boolean('status')->default(true);
+            // Media Sosial
+            $table->string('facebook')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('tiktok')->nullable();
 
-        $table->timestamps();
-    });
-}
+            // Status tampil di website
+            $table->boolean('status')->default(true);
+
+            $table->timestamps();
+        });
+    }
 
     /**
      * Reverse the migrations.

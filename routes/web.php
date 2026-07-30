@@ -42,10 +42,48 @@ Route::get('/agenda/{slug}', [AgendaController::class, 'show'])->name('agenda.sh
 | Dashboard Admin
 |--------------------------------------------------------------------------
 */
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\JabatanController;
+use App\Http\Controllers\Admin\PerangkatController;
+use App\Http\Controllers\Admin\LembagaController;
+use App\Http\Controllers\Admin\UmkmCategoryController;
+use App\Http\Controllers\Admin\UmkmController as AdminUmkmController;
+use App\Http\Controllers\Admin\UmkmGalleryController;
 
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::view('/dashboard', 'dashboard')->name('dashboard');
-});
+Route::prefix('admin')
+    ->name('admin.')
+    ->middleware(['auth', 'verified'])
+    ->group(function () {
+
+        Route::get('/dashboard', [DashboardController::class, 'index'])
+            ->name('dashboard');
+
+        Route::resource('jabatan', JabatanController::class);
+
+        Route::resource('perangkat', PerangkatController::class);
+
+        Route::resource('lembaga', LembagaController::class);
+
+        Route::resource('umkm-category', UmkmCategoryController::class);
+
+        Route::resource('umkm', AdminUmkmController::class);
+
+        Route::post(
+    'umkm/{umkm}/gallery',
+    [UmkmGalleryController::class, 'store']
+)->name('umkm.gallery.store');
+
+Route::put(
+    'umkm-gallery/{gallery}',
+    [UmkmGalleryController::class, 'update']
+)->name('umkm.gallery.update');
+
+Route::delete(
+    'umkm-gallery/{gallery}',
+    [UmkmGalleryController::class, 'destroy']
+)->name('umkm.gallery.destroy');
+
+    });
 
 /*
 |--------------------------------------------------------------------------
