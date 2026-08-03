@@ -43,6 +43,9 @@ Route::get('/agenda/{slug}', [AgendaController::class, 'show'])->name('agenda.sh
 |--------------------------------------------------------------------------
 */
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProfileController as AdminProfileController;
+use App\Http\Controllers\Admin\ProfileMissionController as AdminProfileMissionController;
+use App\Http\Controllers\Admin\ProfileJorongController;
 use App\Http\Controllers\Admin\JabatanController;
 use App\Http\Controllers\Admin\PerangkatController;
 use App\Http\Controllers\Admin\LembagaController;
@@ -50,6 +53,8 @@ use App\Http\Controllers\Admin\UmkmCategoryController;
 use App\Http\Controllers\Admin\UmkmController as AdminUmkmController;
 use App\Http\Controllers\Admin\UmkmGalleryController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\BeritaController;
+use App\Http\Controllers\Admin\AgendaController as AdminAgendaController;
 
 Route::prefix('admin')
     ->name('admin.')
@@ -69,6 +74,9 @@ Route::prefix('admin')
 
         Route::resource('umkm', AdminUmkmController::class);
 
+        Route::resource('berita', BeritaController::class);
+
+        Route::resource('agenda', AdminAgendaController::class);
 
         Route::post(
             'umkm/{umkm}/gallery',
@@ -94,6 +102,46 @@ Route::prefix('admin')
             'setting',
             [SettingController::class, 'update']
         )->name('setting.update');
+
+        Route::get(
+            'profile',
+            [AdminProfileController::class, 'edit']
+        )->name('profile.edit');
+
+        Route::put(
+            'profile',
+            [AdminProfileController::class, 'update']
+        )->name('profile.update');
+
+        Route::post(
+            'profile/missions',
+            [AdminProfileMissionController::class, 'store']
+        )->name('profile.missions.store');
+
+        Route::put(
+            'profile/missions/{mission}',
+            [AdminProfileMissionController::class, 'update']
+        )->name('profile.missions.update');
+
+        Route::delete(
+            'profile/missions/{mission}',
+            [AdminProfileMissionController::class, 'destroy']
+        )->name('profile.missions.destroy');
+
+        Route::post(
+    '/profile/jorong',
+    [ProfileJorongController::class, 'store']
+)->name('profile.jorong.store');
+
+Route::put(
+    '/profile/jorong/{jorong}',
+    [ProfileJorongController::class, 'update']
+)->name('profile.jorong.update');
+
+Route::delete(
+    '/profile/jorong/{jorong}',
+    [ProfileJorongController::class, 'destroy']
+)->name('profile.jorong.destroy');
     });
 
 /*

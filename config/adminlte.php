@@ -353,7 +353,7 @@ return [
 
     [
         'text' => 'Profil Nagari',
-        'url'  => '#',
+        'route' => 'admin.profile.edit',
         'icon' => 'fas fa-landmark',
     ],
 
@@ -365,13 +365,13 @@ return [
 
     [
         'text' => 'Berita',
-        'url'  => '#',
+        'route' => 'admin.berita.index',
         'icon' => 'fas fa-newspaper',
     ],
 
     [
         'text' => 'Agenda',
-        'url'  => '#',
+        'route' => 'admin.agenda.index',
         'icon' => 'fas fa-calendar-alt',
     ],
 

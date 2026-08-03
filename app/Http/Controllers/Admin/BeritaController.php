@@ -3,63 +3,206 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreNewsRequest;
+use App\Http\Requests\UpdateNewsRequest;
+use App\Models\News;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class BeritaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $news = News::latest()->paginate(10);
+
+        return view('admin.berita.index', compact('news'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('admin.berita.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function store(StoreNewsRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        /*
+        |--------------------------------------------------------------------------
+        | Upload Thumbnail
+        |--------------------------------------------------------------------------
+        */
+
+        if ($request->hasFile('thumbnail')) {
+
+            $data['thumbnail'] = $request
+                ->file('thumbnail')
+                ->store('news', 'public');
+
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | Generate Slug
+        |--------------------------------------------------------------------------
+        */
+
+        $slug = Str::slug($data['title']);
+        $originalSlug = $slug;
+        $i = 1;
+
+        while (News::where('slug', $slug)->exists()) {
+
+            $slug = $originalSlug . '-' . $i;
+
+            $i++;
+        }
+
+        $data['slug'] = $slug;
+
+        /*
+        |--------------------------------------------------------------------------
+        | Published At
+        |--------------------------------------------------------------------------
+        */
+
+        $data['published_at'] = $data['status'] === 'Publish'
+            ? now()
+            : null;
+
+        /*
+        |--------------------------------------------------------------------------
+        | Simpan Data
+        |--------------------------------------------------------------------------
+        */
+
+        News::create($data);
+
+        return redirect()
+            ->route('admin.berita.index')
+            ->with('success', 'Berita berhasil ditambahkan.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function show(News $beritum)
     {
-        //
+        abort(404);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function edit(News $beritum)
     {
-        //
+        $news = $beritum;
+
+        return view(
+            'admin.berita.edit',
+            compact('news')
+        );
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(UpdateNewsRequest $request, News $beritum)
     {
-        //
+        $data = $request->validated();
+
+        /*
+        |--------------------------------------------------------------------------
+        | Upload Thumbnail Baru
+        |--------------------------------------------------------------------------
+        */
+
+        if ($request->hasFile('thumbnail')) {
+
+            if (
+                $beritum->thumbnail &&
+                Storage::disk('public')->exists($beritum->thumbnail)
+            ) {
+
+                Storage::disk('public')->delete($beritum->thumbnail);
+
+            }
+
+            $data['thumbnail'] = $request
+                ->file('thumbnail')
+                ->store('news', 'public');
+
+        } else {
+
+            $data['thumbnail'] = $beritum->thumbnail;
+
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | Generate Slug
+        |--------------------------------------------------------------------------
+        */
+
+        $slug = Str::slug($data['title']);
+        $originalSlug = $slug;
+        $i = 1;
+
+        while (
+            News::where('slug', $slug)
+                ->where('id', '!=', $beritum->id)
+                ->exists()
+        ) {
+
+            $slug = $originalSlug . '-' . $i;
+
+            $i++;
+
+        }
+
+        $data['slug'] = $slug;
+
+        /*
+        |--------------------------------------------------------------------------
+        | Published At
+        |--------------------------------------------------------------------------
+        */
+
+        $data['published_at'] = $data['status'] === 'Publish'
+            ? ($beritum->published_at ?? now())
+            : null;
+
+        /*
+        |--------------------------------------------------------------------------
+        | Update Data
+        |--------------------------------------------------------------------------
+        */
+
+        $beritum->update($data);
+
+        return redirect()
+            ->route('admin.berita.index')
+            ->with('success', 'Berita berhasil diperbarui.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy(News $beritum)
     {
-        //
+        /*
+        |--------------------------------------------------------------------------
+        | Hapus Thumbnail
+        |--------------------------------------------------------------------------
+        */
+
+        if (
+            $beritum->thumbnail &&
+            Storage::disk('public')->exists($beritum->thumbnail)
+        ) {
+
+            Storage::disk('public')->delete($beritum->thumbnail);
+
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | Hapus Data
+        |--------------------------------------------------------------------------
+        */
+
+        $beritum->delete();
+
+        return redirect()
+            ->route('admin.berita.index')
+            ->with('success', 'Berita berhasil dihapus.');
     }
 }

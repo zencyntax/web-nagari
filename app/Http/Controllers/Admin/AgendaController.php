@@ -3,63 +3,187 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreAgendaRequest;
+use App\Http\Requests\UpdateAgendaRequest;
+use App\Models\Agenda;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class AgendaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $agendas = Agenda::latest()->paginate(10);
+
+        return view('admin.agenda.index', compact('agendas'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('admin.agenda.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function store(StoreAgendaRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        /*
+        |--------------------------------------------------------------------------
+        | Upload Thumbnail
+        |--------------------------------------------------------------------------
+        */
+
+        if ($request->hasFile('thumbnail')) {
+
+            $data['thumbnail'] = $request
+                ->file('thumbnail')
+                ->store('agenda', 'public');
+
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | Generate Slug
+        |--------------------------------------------------------------------------
+        */
+
+        $slug = Str::slug($data['title']);
+
+        $originalSlug = $slug;
+
+        $i = 1;
+
+        while (Agenda::where('slug', $slug)->exists()) {
+
+            $slug = $originalSlug . '-' . $i;
+
+            $i++;
+
+        }
+
+        $data['slug'] = $slug;
+
+        /*
+        |--------------------------------------------------------------------------
+        | Simpan Data
+        |--------------------------------------------------------------------------
+        */
+
+        Agenda::create($data);
+
+        return redirect()
+            ->route('admin.agenda.index')
+            ->with('success', 'Agenda berhasil ditambahkan.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function show(Agenda $agenda)
     {
-        //
+        abort(404);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function edit(Agenda $agenda)
     {
-        //
+        return view(
+            'admin.agenda.edit',
+            compact('agenda')
+        );
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(UpdateAgendaRequest $request, Agenda $agenda)
     {
-        //
+        $data = $request->validated();
+
+        /*
+        |--------------------------------------------------------------------------
+        | Upload Thumbnail
+        |--------------------------------------------------------------------------
+        */
+
+        if ($request->hasFile('thumbnail')) {
+
+            if (
+
+                $agenda->thumbnail &&
+
+                Storage::disk('public')->exists($agenda->thumbnail)
+
+            ) {
+
+                Storage::disk('public')->delete($agenda->thumbnail);
+
+            }
+
+            $data['thumbnail'] = $request
+                ->file('thumbnail')
+                ->store('agenda', 'public');
+
+        } else {
+
+            $data['thumbnail'] = $agenda->thumbnail;
+
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | Generate Slug
+        |--------------------------------------------------------------------------
+        */
+
+        $slug = Str::slug($data['title']);
+
+        $originalSlug = $slug;
+
+        $i = 1;
+
+        while (
+
+            Agenda::where('slug', $slug)
+
+                ->where('id', '!=', $agenda->id)
+
+                ->exists()
+
+        ) {
+
+            $slug = $originalSlug . '-' . $i;
+
+            $i++;
+
+        }
+
+        $data['slug'] = $slug;
+
+        /*
+        |--------------------------------------------------------------------------
+        | Update Data
+        |--------------------------------------------------------------------------
+        */
+
+        $agenda->update($data);
+
+        return redirect()
+            ->route('admin.agenda.index')
+            ->with('success', 'Agenda berhasil diperbarui.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy(Agenda $agenda)
     {
-        //
+        if (
+
+            $agenda->thumbnail &&
+
+            Storage::disk('public')->exists($agenda->thumbnail)
+
+        ) {
+
+            Storage::disk('public')->delete($agenda->thumbnail);
+
+        }
+
+        $agenda->delete();
+
+        return redirect()
+            ->route('admin.agenda.index')
+            ->with('success', 'Agenda berhasil dihapus.');
     }
 }
