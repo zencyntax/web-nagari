@@ -1,8 +1,14 @@
+import { ClassicEditor } from 'ckeditor5';
+import 'ckeditor5/ckeditor5.css';
+
+import './bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import 'bootstrap';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+
+window.ClassicEditor = ClassicEditor;
 
 AOS.init();
 

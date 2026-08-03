@@ -1,99 +1,40 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<head>
+        <title>
 
-    {{-- Meta --}}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{{ $setting->nama_website }}
 
-    {{-- Title --}}
-    <title>@yield('title', 'Website Resmi Nagari Sinyamu')</title>
+</title>
 
-    {{-- SEO --}}
-    <meta name="description" content="Website Resmi Pemerintah Nagari Sinyamu">
-    <meta name="keywords" content="Nagari, Sinyamu, Pemerintah Nagari, UMKM, Berita, Agenda">
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-    {{-- Favicon --}}
-    <link rel="icon" href="{{ asset('assets/images/logo.png') }}">
+        <!-- Scripts -->
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    </head>
+    <body class="font-sans antialiased">
+        <div class="min-h-screen bg-gray-100">
+            @include('layouts.navigation')
 
-    {{-- Google Font --}}
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+            <!-- Page Heading -->
+            @isset($header)
+                <header class="bg-white shadow">
+                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                        {{ $header }}
+                    </div>
+                </header>
+            @endisset
 
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-          rel="stylesheet">
-
-    {{-- Bootstrap Icons --}}
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-    {{-- AOS Animation --}}
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css"
-          rel="stylesheet">
-
-    {{-- CSS & JS Laravel --}}
-    @vite([
-        'resources/css/app.css',
-        'resources/js/app.js'
-    ])
-
-    @stack('styles')
-
-</head>
-
-<body>
-
-    {{--
-    <div id="loader">
-
-        <div class="spinner-border text-success"
-             role="status">
-
-            <span class="visually-hidden">
-                Loading...
-            </span>
-
+            <!-- Page Content -->
+            <main>
+                {{ $slot }}
+            </main>
         </div>
-
-    </div>
-    --}}
-
-    {{-- Navbar --}}
-    @include('partials.navbar')
-
-    {{-- Content --}}
-    <main>
-
-        @yield('content')
-
-    </main>
-
-    {{-- Footer --}}
-    @include('partials.footer')
-
-
-
-
-    {{-- AOS --}}
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
-    <script>
-
-        AOS.init({
-
-            duration:800,
-            once:true
-
-        });
-
-    </script>
-
-    @stack('scripts')
-
-</body>
-
+    </body>
 </html>

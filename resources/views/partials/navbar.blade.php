@@ -64,21 +64,21 @@
 
                         <li>
                             <a class="dropdown-item"
-                            href="{{ url('/profil#sejarah') }}">
+                            href="{{ route('profile') }}#sejarah">
                                 Sejarah
                             </a>
                         </li>
 
                         <li>
                             <a class="dropdown-item"
-                            href="{{ url('/profil#visi-misi') }}">
+                            href="{{ route('profile') }}#visi-misi">
                                 Visi & Misi
                             </a>
                         </li>
 
                         <li>
                             <a class="dropdown-item"
-                            href="{{ url('/profil#demografi') }}">
+                            href="{{ route('profile') }}#demografi">
                                 Demografi
                             </a>
                         </li>
